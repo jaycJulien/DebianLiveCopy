@@ -1318,6 +1318,8 @@ public class DLCopySwingGUI extends JFrame
         installShowHarddisksCheckBox = new javax.swing.JCheckBox();
         installSelectionCardPanel = new javax.swing.JPanel();
         installListPanel = new javax.swing.JPanel();
+        installListTabbedPane = new javax.swing.JTabbedPane();
+        exchangePartitionPanel = new javax.swing.JPanel();
         installSelectionCountLabel = new javax.swing.JLabel();
         installStorageDeviceListScrollPane = new javax.swing.JScrollPane();
         installStorageDeviceList = new javax.swing.JList();
@@ -1325,8 +1327,6 @@ public class DLCopySwingGUI extends JFrame
         dataDefinitionLabel = new javax.swing.JLabel();
         bootDefinitionLabel = new javax.swing.JLabel();
         systemDefinitionLabel = new javax.swing.JLabel();
-        installListTabbedPane = new javax.swing.JTabbedPane();
-        exchangePartitionPanel = new javax.swing.JPanel();
         exchangePartitionSizeLabel = new javax.swing.JLabel();
         exchangePartitionSizeSlider = new javax.swing.JSlider();
         exchangePartitionSizeTextField = new javax.swing.JTextField();
@@ -1825,10 +1825,12 @@ public class DLCopySwingGUI extends JFrame
 
         installListPanel.setLayout(new java.awt.GridBagLayout());
 
+        exchangePartitionPanel.setLayout(new java.awt.GridBagLayout());
+
         installSelectionCountLabel.setText(bundle.getString("Selection_Count")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        installListPanel.add(installSelectionCountLabel, gridBagConstraints);
+        exchangePartitionPanel.add(installSelectionCountLabel, gridBagConstraints);
 
         installStorageDeviceList.setName("installStorageDeviceList"); // NOI18N
         installStorageDeviceList.setVisibleRowCount(3);
@@ -1844,7 +1846,7 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        installListPanel.add(installStorageDeviceListScrollPane, gridBagConstraints);
+        exchangePartitionPanel.add(installStorageDeviceListScrollPane, gridBagConstraints);
 
         exchangeDefinitionLabel.setFont(exchangeDefinitionLabel.getFont().deriveFont(exchangeDefinitionLabel.getFont().getStyle() & ~java.awt.Font.BOLD, exchangeDefinitionLabel.getFont().getSize()-1));
         exchangeDefinitionLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ch/fhnw/dlcopy/icons/yellow_box.png"))); // NOI18N
@@ -1853,7 +1855,7 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 0);
-        installListPanel.add(exchangeDefinitionLabel, gridBagConstraints);
+        exchangePartitionPanel.add(exchangeDefinitionLabel, gridBagConstraints);
 
         dataDefinitionLabel.setFont(dataDefinitionLabel.getFont().deriveFont(dataDefinitionLabel.getFont().getStyle() & ~java.awt.Font.BOLD, dataDefinitionLabel.getFont().getSize()-1));
         dataDefinitionLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ch/fhnw/dlcopy/icons/green_box.png"))); // NOI18N
@@ -1862,7 +1864,7 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 0);
-        installListPanel.add(dataDefinitionLabel, gridBagConstraints);
+        exchangePartitionPanel.add(dataDefinitionLabel, gridBagConstraints);
 
         bootDefinitionLabel.setFont(bootDefinitionLabel.getFont().deriveFont(bootDefinitionLabel.getFont().getStyle() & ~java.awt.Font.BOLD, bootDefinitionLabel.getFont().getSize()-1));
         bootDefinitionLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ch/fhnw/dlcopy/icons/dark_blue_box.png"))); // NOI18N
@@ -1870,7 +1872,7 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 0);
-        installListPanel.add(bootDefinitionLabel, gridBagConstraints);
+        exchangePartitionPanel.add(bootDefinitionLabel, gridBagConstraints);
 
         systemDefinitionLabel.setFont(systemDefinitionLabel.getFont().deriveFont(systemDefinitionLabel.getFont().getStyle() & ~java.awt.Font.BOLD, systemDefinitionLabel.getFont().getSize()-1));
         systemDefinitionLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ch/fhnw/dlcopy/icons/blue_box.png"))); // NOI18N
@@ -1879,9 +1881,7 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 10, 0, 0);
-        installListPanel.add(systemDefinitionLabel, gridBagConstraints);
-
-        exchangePartitionPanel.setLayout(new java.awt.GridBagLayout());
+        exchangePartitionPanel.add(systemDefinitionLabel, gridBagConstraints);
 
         exchangePartitionSizeLabel.setText(bundle.getString("Size")); // NOI18N
         exchangePartitionSizeLabel.setEnabled(false);
