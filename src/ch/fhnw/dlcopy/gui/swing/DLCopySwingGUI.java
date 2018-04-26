@@ -2078,7 +2078,6 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
         dataPartitionPanel.add(dataPartitionFileSystemLabel, gridBagConstraints);
 
         dataPartitionFileSystemComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ext2", "ext3", "ext4" }));
@@ -2091,7 +2090,6 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 9, 0, 0);
         dataPartitionPanel.add(dataPartitionFileSystemComboBox, gridBagConstraints);
 
         dataPartitionModeLabel.setText(bundle.getString("DLCopySwingGUI.dataPartitionModeLabel.text")); // NOI18N
@@ -2100,7 +2098,6 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(14, 12, 0, 0);
         dataPartitionPanel.add(dataPartitionModeLabel, gridBagConstraints);
 
         dataPartitionModeComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -2111,19 +2108,15 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 28;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
         dataPartitionPanel.add(dataPartitionModeComboBox, gridBagConstraints);
 
         copyDataPartitionCheckBox.setText(bundle.getString("Copy_Data_Partition")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(9, 24, 0, 0);
         dataPartitionPanel.add(copyDataPartitionCheckBox, gridBagConstraints);
 
         DataPartitionButtonGroup.add(noPWRadio);
@@ -2139,7 +2132,6 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 1, 0, 0);
         dataPartitionPanel.add(noPWRadio, gridBagConstraints);
 
         noPWHint.setFont(new java.awt.Font("Cantarell", 2, 12)); // NOI18N
@@ -2152,26 +2144,22 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.ipadx = 76;
         gridBagConstraints.ipady = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 0, 0, 0);
         dataPartitionPanel.add(noPWHint, gridBagConstraints);
 
         DataPartitionButtonGroup.add(PersonalPFRadio);
         PersonalPFRadio.setText(bundle.getString("DLCopySwingGUI.PersonalPFRadio.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(16, 0, 1, 0);
         dataPartitionPanel.add(PersonalPFRadio, gridBagConstraints);
 
         personalPFLabel.setText(bundle.getString("DLCopySwingGUI.personalPFLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 38, 0, 0);
         dataPartitionPanel.add(personalPFLabel, gridBagConstraints);
 
         personalPWTF.setText(bundle.getString("DLCopySwingGUI.personalPWTF.text")); // NOI18N
@@ -2183,29 +2171,24 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 96;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 37, 0, 0);
         dataPartitionPanel.add(personalPWTF, gridBagConstraints);
 
         repeatPersonalPWLabel.setText(bundle.getString("DLCopySwingGUI.repeatPersonalPWLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 33, 0, 0);
         dataPartitionPanel.add(repeatPersonalPWLabel, gridBagConstraints);
 
         repeatPersonalPFTF.setText(bundle.getString("DLCopySwingGUI.repeatPersonalPFTF.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 120;
+        gridBagConstraints.ipadx = 96;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 33, 0, 0);
         dataPartitionPanel.add(repeatPersonalPFTF, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Cantarell", 2, 12)); // NOI18N
@@ -2214,10 +2197,8 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 79;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 33, 0, 0);
         dataPartitionPanel.add(jLabel1, gridBagConstraints);
 
         DataPartitionButtonGroup.add(MasterInitialPFRadio);
@@ -2232,55 +2213,44 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 46, 0, 0);
         dataPartitionPanel.add(MasterInitialPFRadio, gridBagConstraints);
 
         jLabel2.setText(bundle.getString("DLCopySwingGUI.jLabel2.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 68, 0, 0);
         dataPartitionPanel.add(jLabel2, gridBagConstraints);
 
         masterPWTF.setText(bundle.getString("DLCopySwingGUI.masterPWTF.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 120;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 68, 0, 0);
         dataPartitionPanel.add(masterPWTF, gridBagConstraints);
 
         repeatMasterPWLabel.setText(bundle.getString("DLCopySwingGUI.repeatMasterPWLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 65, 0, 0);
         dataPartitionPanel.add(repeatMasterPWLabel, gridBagConstraints);
 
         repeatMasterPWTF.setText(bundle.getString("DLCopySwingGUI.repeatMasterPWTF.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.ipadx = 120;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 65, 0, 0);
         dataPartitionPanel.add(repeatMasterPWTF, gridBagConstraints);
 
         repeatInitialPFLabel.setText(bundle.getString("DLCopySwingGUI.repeatInitialPFLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 13;
-        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 65, 0, 0);
         dataPartitionPanel.add(repeatInitialPFLabel, gridBagConstraints);
 
         initialPFLabel.setText(bundle.getString("DLCopySwingGUI.initialPFLabel.text")); // NOI18N
@@ -2288,17 +2258,14 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 65, 0, 0);
         dataPartitionPanel.add(initialPFLabel, gridBagConstraints);
 
         intialPWTF.setText(bundle.getString("DLCopySwingGUI.intialPWTF.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 14;
-        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.ipadx = 120;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 65, 0, 0);
         dataPartitionPanel.add(intialPWTF, gridBagConstraints);
 
         masterPWHint.setFont(new java.awt.Font("Cantarell", 2, 12)); // NOI18N
@@ -2306,20 +2273,16 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 9;
         gridBagConstraints.ipadx = 162;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 65, 0, 27);
         dataPartitionPanel.add(masterPWHint, gridBagConstraints);
 
         repeatInitialPWTF.setText(bundle.getString("DLCopySwingGUI.repeatInitialPWTF.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.ipadx = 120;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 65, 0, 0);
         dataPartitionPanel.add(repeatInitialPWTF, gridBagConstraints);
 
         initialPWHint.setFont(new java.awt.Font("Cantarell", 2, 12)); // NOI18N
@@ -2327,10 +2290,8 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 15;
-        gridBagConstraints.gridwidth = 8;
         gridBagConstraints.ipadx = 162;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 65, 0, 0);
         dataPartitionPanel.add(initialPWHint, gridBagConstraints);
 
         installListTabbedPane.addTab(bundle.getString("DLCopySwingGUI.dataPartitionPanel.TabConstraints.tabTitle"), new javax.swing.ImageIcon(getClass().getResource("/ch/fhnw/dlcopy/icons/green_box.png")), dataPartitionPanel); // NOI18N
