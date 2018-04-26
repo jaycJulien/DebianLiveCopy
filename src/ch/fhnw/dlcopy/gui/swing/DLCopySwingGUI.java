@@ -2120,6 +2120,11 @@ public class DLCopySwingGUI extends JFrame
         dataPartitionPanel.add(copyDataPartitionCheckBox, gridBagConstraints);
 
         noPWRadio.setText(bundle.getString("DLCopySwingGUI.noPWRadio.text")); // NOI18N
+        noPWRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noPWRadioActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -3615,6 +3620,7 @@ public class DLCopySwingGUI extends JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+        getdataPartitionTabCredentials();
         switch (state) {
 
             case INSTALL_INFORMATION:
@@ -4133,6 +4139,10 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
     private void personalPWTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personalPWTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_personalPWTFActionPerformed
+
+    private void noPWRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noPWRadioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_noPWRadioActionPerformed
 
     private void parseCommandLineArguments(String[] arguments) {
         for (int i = 0, length = arguments.length; i < length; i++) {
@@ -5455,7 +5465,37 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
             disableNextButton();
         }
     }
+    
+    
+    /**
+     * 
+     * 
+     * 
+     */
+    private String  personalPassword;
+        private String  personalPasswordRepeat;
 
+            private String  masterPassword;
+    private String  masterPasswordRepeat;
+    
+    private String  initialPassword;
+    private String  initialPaswordRepeat;
+    
+    private enum UNLOCK_LOCK_METHOD {
+        NO_PASSWORD,
+        PERSONAL_PASSWORD,
+        MASTER_INITIAL_PASSWORD;
+    }
+
+    private void getdataPartitionTabCredentials() {
+   /*     if(personalPWTF.getPassword() == null ) {
+           System.out.println("personalPassword" +personalPassword);
+
+        }*/
+   
+        personalPassword = new String(personalPWTF.getPassword());
+        System.out.println("personalPassword" +personalPassword);
+    }
     private void storageDeviceListChanged(DefaultListModel<StorageDevice> model,
             JPanel panel, String noMediaPanelName, String selectionPanelName,
             StorageDeviceRenderer renderer, JList list) {
