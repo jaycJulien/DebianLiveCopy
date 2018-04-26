@@ -969,6 +969,8 @@ public class DLCopySwingGUI extends JFrame
             }
         });
     }
+    
+ 
 
     /**
      * sets the text on a JLabel to display info about a StorageDevice
@@ -1285,6 +1287,7 @@ public class DLCopySwingGUI extends JFrame
         isoButtonGroup = new javax.swing.ButtonGroup();
         exchangeButtonGroup = new javax.swing.ButtonGroup();
         installSourceButtonGroup = new javax.swing.ButtonGroup();
+        DataPartitionButtonGroup = new javax.swing.ButtonGroup();
         choicePanel = new javax.swing.JPanel();
         choiceLabel = new javax.swing.JLabel();
         buttonGridPanel = new javax.swing.JPanel();
@@ -1360,7 +1363,7 @@ public class DLCopySwingGUI extends JFrame
         repeatPersonalPWLabel = new javax.swing.JLabel();
         repeatPersonalPFTF = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        MasterInitialPFRadio = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         masterPWTF = new javax.swing.JPasswordField();
         repeatMasterPWLabel = new javax.swing.JLabel();
@@ -2119,6 +2122,7 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.insets = new java.awt.Insets(49, 30, 0, 0);
         dataPartitionPanel.add(copyDataPartitionCheckBox, gridBagConstraints);
 
+        DataPartitionButtonGroup.add(noPWRadio);
         noPWRadio.setText(bundle.getString("DLCopySwingGUI.noPWRadio.text")); // NOI18N
         noPWRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2146,6 +2150,7 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.insets = new java.awt.Insets(6, 24, 0, 0);
         dataPartitionPanel.add(noPWHint, gridBagConstraints);
 
+        DataPartitionButtonGroup.add(PersonalPFRadio);
         PersonalPFRadio.setText(bundle.getString("DLCopySwingGUI.PersonalPFRadio.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
@@ -2212,14 +2217,20 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.insets = new java.awt.Insets(12, 41, 0, 0);
         dataPartitionPanel.add(jLabel1, gridBagConstraints);
 
-        jRadioButton1.setText(bundle.getString("DLCopySwingGUI.jRadioButton1.text")); // NOI18N
+        DataPartitionButtonGroup.add(MasterInitialPFRadio);
+        MasterInitialPFRadio.setText(bundle.getString("DLCopySwingGUI.MasterInitialPFRadio.text")); // NOI18N
+        MasterInitialPFRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MasterInitialPFRadioActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 13;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(36, 50, 0, 0);
-        dataPartitionPanel.add(jRadioButton1, gridBagConstraints);
+        dataPartitionPanel.add(MasterInitialPFRadio, gridBagConstraints);
 
         jLabel2.setText(bundle.getString("DLCopySwingGUI.jLabel2.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -3621,6 +3632,9 @@ public class DLCopySwingGUI extends JFrame
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         getdataPartitionTabCredentials();
+        
+        
+        
         switch (state) {
 
             case INSTALL_INFORMATION:
@@ -3706,7 +3720,8 @@ public class DLCopySwingGUI extends JFrame
 
             default:
                 LOGGER.log(Level.WARNING, "unsupported state {0}", state);
-        }
+        } 
+        
     }//GEN-LAST:event_nextButtonActionPerformed
 
     private void previousButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousButtonActionPerformed
@@ -4143,6 +4158,10 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
     private void noPWRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noPWRadioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_noPWRadioActionPerformed
+
+    private void MasterInitialPFRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MasterInitialPFRadioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MasterInitialPFRadioActionPerformed
 
     private void parseCommandLineArguments(String[] arguments) {
         for (int i = 0, length = arguments.length; i < length; i++) {
@@ -5473,14 +5492,13 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
      * 
      */
     private String  personalPassword;
-        private String  personalPasswordRepeat;
+    private String   personalPasswordRepeat;
 
-            private String  masterPassword;
-    private String  masterPasswordRepeat;
+    private String  masterPassword;
+    private String   masterPasswordRepeat;
     
     private String  initialPassword;
-    private String  initialPaswordRepeat;
-    
+    private String   initialPaswordRepeat;
     private enum UNLOCK_LOCK_METHOD {
         NO_PASSWORD,
         PERSONAL_PASSWORD,
@@ -5490,12 +5508,63 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
     private void getdataPartitionTabCredentials() {
    /*     if(personalPWTF.getPassword() == null ) {
            System.out.println("personalPassword" +personalPassword);
-
         }*/
    
-        personalPassword = new String(personalPWTF.getPassword());
-        System.out.println("personalPassword" +personalPassword);
-    }
+   if(noPWRadio.isSelected() == true) {
+       System.out.println("noPW Radaio is selected");
+   } else if(PersonalPFRadio.isSelected() == true) {
+       if(personalPWTF.getPassword() == null || 
+               repeatPersonalPFTF.getPassword() == null ){
+           System.out.println("a personal password is not set!");
+   } else{
+              System.out.println("Persoal PF Radaio is selected");
+              personalPassword = Arrays.toString(personalPWTF.getPassword());
+              personalPasswordRepeat = Arrays.toString(repeatPersonalPFTF.getPassword());
+              if(personalPassword.equals(personalPasswordRepeat)) {
+
+                             System.out.println("Personal Pass Phrases match: Personal Phrase :"+personalPassword + " ; Repeat Phrase:" +personalPasswordRepeat +";");
+              } else {
+                             showErrorMessage("Password does not match");
+                             System.out.println("Personal Phrases do not match!");
+              }
+   }
+   } else if(MasterInitialPFRadio.isSelected() == true) {
+             System.out.println("Master Initial Radio is selected");
+            if(masterPWTF.getPassword() == null || 
+                    repeatMasterPWTF.getPassword() == null ){
+           System.out.println("a master initial password is not set!");
+   } else{
+              masterPassword = Arrays.toString(masterPWTF.getPassword());
+              masterPasswordRepeat = Arrays.toString(repeatMasterPWTF.getPassword());
+              if(masterPassword.equals(masterPasswordRepeat)) {
+                             System.out.println("Master Pass Phrases match: Masterpass Phrase :"+masterPassword + " ; Repeat Phrase:" +masterPasswordRepeat +";");
+              } else {
+                             System.out.println("Master pass Phrases do not match!");       
+                             showErrorMessage("The passwords do not match!");  
+              }
+   }
+   }
+   }
+   
+   //check which chechbox has been selected
+   //if checkbox no password has been selected, go on with the program
+   //==> globally known password used for decryption
+  
+   //if checkbox master password selected
+   //
+   
+   // ==> check if the amaster password has been entered
+   
+   // ==> check if the repetition of master password has been entered
+   
+   // ==> check if both password match with each other
+   
+   // check the master initial and repeat of masster initial pass phrase
+   
+   // if they dont match == alert, no contination of the program
+           
+
+    
     private void storageDeviceListChanged(DefaultListModel<StorageDevice> model,
             JPanel panel, String noMediaPanelName, String selectionPanelName,
             StorageDeviceRenderer renderer, JList list) {
@@ -5542,6 +5611,8 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup DataPartitionButtonGroup;
+    private javax.swing.JRadioButton MasterInitialPFRadio;
     private javax.swing.JRadioButton PersonalPFRadio;
     private javax.swing.JLabel autoNumberIncrementLabel;
     private javax.swing.JSpinner autoNumberIncrementSpinner;
@@ -5654,7 +5725,6 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
