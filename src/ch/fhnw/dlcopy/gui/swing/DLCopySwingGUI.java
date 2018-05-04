@@ -5551,7 +5551,7 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
 
     private class UdisksMonitorThread extends Thread {
 
-        // use local ProcessExecutor because the udisks process is blocking and
+        // use local ProcessExecutor because the fudisks process is blocking and
         // long-running
         private final ProcessExecutor executor = new ProcessExecutor();
 
