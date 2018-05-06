@@ -502,6 +502,77 @@ public class DLCopy {
             return false;
         }
     }
+    
+    private String   personalPassword;
+    private String   personalPasswordRepeat;
+
+    private String   masterPassword;
+    private String   masterPasswordRepeat;
+    
+    private String   initialPassword;
+
+    public String getPersonalPassword() {
+        return personalPassword;
+    }
+
+    public void setPersonalPassword(String personalPassword) {
+        this.personalPassword = personalPassword;
+    }
+
+    public String getPersonalPasswordRepeat() {
+        return personalPasswordRepeat;
+    }
+
+    public void setPersonalPasswordRepeat(String personalPasswordRepeat) {
+        this.personalPasswordRepeat = personalPasswordRepeat;
+    }
+
+    public String getMasterPassword() {
+        return masterPassword;
+    }
+
+    public void setMasterPassword(String masterPassword) {
+        this.masterPassword = masterPassword;
+    }
+
+    public String getMasterPasswordRepeat() {
+        return masterPasswordRepeat;
+    }
+
+    public void setMasterPasswordRepeat(String masterPasswordRepeat) {
+        this.masterPasswordRepeat = masterPasswordRepeat;
+    }
+
+    public String getInitialPassword() {
+        return initialPassword;
+    }
+
+    public void setInitialPassword(String initialPassword) {
+        this.initialPassword = initialPassword;
+    }
+
+    public String getInitialPaswordRepeat() {
+        return initialPaswordRepeat;
+    }
+
+    public void setInitialPaswordRepeat(String initialPaswordRepeat) {
+        this.initialPaswordRepeat = initialPaswordRepeat;
+    }
+
+    public String getSelectedUnlockingMethod() {
+        return selectedUnlockingMethod;
+    }
+
+    public void setSelectedUnlockingMethod(String selectedUnlockingMethod) {
+        this.selectedUnlockingMethod = selectedUnlockingMethod;
+    }
+    private String   initialPaswordRepeat;
+    
+    private String  selectedUnlockingMethod;
+    
+    
+
+       
 
     /**
      * writes the currently used version of persistence.conf into a given path
@@ -600,8 +671,32 @@ public class DLCopy {
         }
 
         persistencePartition.umount();
-    }
+        
+        //now our magic is here foreal bruh
+        
 
+        
+       PROCESS_EXECUTOR.executeProcess("cryptsetup",
+                "--verbose", "--verify-passphrase","-s", "512", 
+                "luksFormate" +"/dev/"+ device.substring(5));
+        try {
+            TimeUnit.SECONDS.sleep(10);
+        } catch (InterruptedException ex) {
+            LOGGER.log(Level.SEVERE, "", ex);
+        }
+        
+
+    
+       PROCESS_EXECUTOR.executeProcess("asdf");
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException ex) {
+            LOGGER.log(Level.SEVERE, "", ex);
+        }
+        PROCESS_EXECUTOR.executeProcess("asdf");
+
+    }
+    
     /**
      * creates a CopyJobsInfo for a given source / destination combination
      *

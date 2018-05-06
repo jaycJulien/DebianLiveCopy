@@ -99,8 +99,7 @@ public class Installer extends InstallerOrUpgrader
                 LOGGER.log(Level.WARNING, "", exception);
                 errorMessage = exception.getMessage();
             }
-            //our magic will be here !
-            
+
             dlCopyGUI.installingDeviceFinished(errorMessage, autoNumber);
             
      
@@ -121,7 +120,7 @@ public class Installer extends InstallerOrUpgrader
     public void propertyChange(PropertyChangeEvent evt) {
         if (ProcessExecutor.LINE.equals(evt.getPropertyName())) {
             // store current cp progress line
-            // (will be pattern matched later when needed)
+
             String line = (String) evt.getNewValue();
             dlCopyGUI.setInstallCopyLine(line);
         }
