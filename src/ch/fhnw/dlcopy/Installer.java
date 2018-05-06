@@ -99,8 +99,11 @@ public class Installer extends InstallerOrUpgrader
                 LOGGER.log(Level.WARNING, "", exception);
                 errorMessage = exception.getMessage();
             }
-
+            //our magic will be here !
+            
             dlCopyGUI.installingDeviceFinished(errorMessage, autoNumber);
+            
+     
         }
 
         return null;

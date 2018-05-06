@@ -393,6 +393,9 @@ public class DLCopy {
             throw new IOException(errorMessage);
         }
         source.unmountTmpPartitions();
+        
+        //Here we have to do our magic!!
+        
     }
 
     /**
@@ -1321,6 +1324,7 @@ public class DLCopy {
                         //  4) system (Linux)
                         PROCESS_EXECUTOR.executeProcess("/sbin/sfdisk",
                                 "--id", device, "3", "83");
+                        System.out.println("Blzbber"+PROCESS_EXECUTOR.getOutput());
                         PROCESS_EXECUTOR.executeProcess("/sbin/sfdisk",
                                 "--id", device, "4", "83");
                     }
