@@ -306,7 +306,7 @@ public class DLCopy {
             // New situation:
             // Units = mebibytes of 1048576 bytes, blocks of 1024 bytes, counting from 0
             //
-            //    Device Boot Start   End    MiB    #blocks   Id  System
+            //    Device Boot Start   End    MiB    #blocks   Id  Systemff
             // /dev/sdc1         0+  1023   1024-   1048575+   c  W95 FAT32 (LBA)
             // /dev/sdc2      1024  11008   9985   10224640   83  Linux
             // /dev/sdc3   * 11009  15271   4263    4365312    c  W95 FAT32 (LBA)
@@ -610,6 +610,20 @@ public class DLCopy {
         }
         //real real magic mate is here
         
+        /*
+             PROCESS_EXECUTOR.executeProcess("cryptsetup",
+                "--verbose", "--verify-passphrase","-s", "512", 
+                "luksFormate" +"/dev/"+ device.substring(5));
+        */
+             //Biping  stuff
+             //PROCESS_EXECUTOR.executeProcess("echo", "asdf","|" echo asdf | yes | cryptsetupt --verbose --verify-passhprase -s 512 luksFormate");
+                String copyScript = "#!/bin/sh" + '\n'
+                        + "cryptsetup --verbose --verify-passhprase -s 512 luksForate /dev/" + device.substring(5) + '\n'
+                        + "asdf " +'\n'
+                        + "asdf";
+                PROCESS_EXECUTOR.executeScript(copyScript);
+        
+        
         // If we want to create a partition at the exact same location of
         // another type of partition mkfs becomes interactive.
         // For instance if we first install with an exchange partition and later
@@ -672,30 +686,8 @@ public class DLCopy {
         }
 
         persistencePartition.umount();
-        
-        //now our magic is here foreal bruh
-        
+              
 
-        
-      /* PROCESS_EXECUTOR.executeProcess("cryptsetup",
-                "--verbose", "--verify-passphrase","-s", "512", 
-                "luksFormate" +"/dev/"+ device.substring(5));
-        try {
-            TimeUnit.SECONDS.sleep(10);
-        } catch (InterruptedException ex) {
-            LOGGER.log(Level.SEVERE, "", ex);
-        }
-        
-
-    
-       PROCESS_EXECUTOR.executeProcess("asdf");
-        try {
-            TimeUnit.SECONDS.sleep(5);
-        } catch (InterruptedException ex) {
-            LOGGER.log(Level.SEVERE, "", ex);
-        }
-        PROCESS_EXECUTOR.executeProcess("asdf");
-*/
       
     }
     
