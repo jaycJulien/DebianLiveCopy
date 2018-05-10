@@ -608,7 +608,8 @@ public class DLCopy {
         if (isMounted(device)) {
             umount(device, dlCopyGUI);
         }
-
+        //real real magic mate is here
+        
         // If we want to create a partition at the exact same location of
         // another type of partition mkfs becomes interactive.
         // For instance if we first install with an exchange partition and later
@@ -676,7 +677,7 @@ public class DLCopy {
         
 
         
-       PROCESS_EXECUTOR.executeProcess("cryptsetup",
+      /* PROCESS_EXECUTOR.executeProcess("cryptsetup",
                 "--verbose", "--verify-passphrase","-s", "512", 
                 "luksFormate" +"/dev/"+ device.substring(5));
         try {
@@ -694,7 +695,8 @@ public class DLCopy {
             LOGGER.log(Level.SEVERE, "", ex);
         }
         PROCESS_EXECUTOR.executeProcess("asdf");
-
+*/
+      
     }
     
     /**
