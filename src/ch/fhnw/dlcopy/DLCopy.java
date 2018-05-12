@@ -616,7 +616,6 @@ public class DLCopy {
 
         persistencePartition.umount();
         
-        
         String copyScript = "#!/bin/sh"+ '\n'
                 +"printf \""+ personalPassword +
                 "\" | cryptsetup -q luksFormat /dev/"+device.substring(5);
