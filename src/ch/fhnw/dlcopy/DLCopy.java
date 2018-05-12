@@ -620,6 +620,7 @@ public class DLCopy {
         String copyScript = "#!/bin/sh"+ '\n'
                 +"printf \""+ personalPassword +
                 "\" | cryptsetup -q luksFormat /dev/"+device.substring(5);
+        System.err.println("personal password from the method of format is "+personalPassword);
         PROCESS_EXECUTOR.executeScript(copyScript);
     }
     
