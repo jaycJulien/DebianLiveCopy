@@ -73,6 +73,12 @@ public class DLCopy {
     private static final long MINIMUM_PARTITION_SIZE = 200 * MEGA;
     private static final long MINIMUM_FREE_MEMORY = 300 * MEGA;
     private static DBusConnection dbusSystemConnection;
+    
+     private static  String selectedMethod;
+     private  static String personalPassword;
+     private  static String masterPassword;
+     private static  String initialPassword;
+     
 
     static {
         try {
@@ -88,11 +94,14 @@ public class DLCopy {
      * @param args the command line arguments
      */
     public static void main(final String args[]) {
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
                 new DLCopySwingGUI(args).setVisible(true);
+            System.out.println("Personal Password here "+ personalPassword);
             }
+            
         });
     }
 
@@ -208,8 +217,13 @@ public class DLCopy {
             String exchangePartitionLabel,
             InstallerOrUpgrader installerOrUpgrader, DLCopyGUI dlCopyGUI)
             throws InterruptedException, IOException, DBusException {
-
-        // determine size and state
+        
+            selectedMethod = installerOrUpgrader.getSelectedMethod();
+            masterPassword = installerOrUpgrader.getMasterPassword();
+            personalPassword = installerOrUpgrader.getPersonalPassword();
+            initialPassword = installerOrUpgrader.getInitialPassword();
+            
+                // determine size and state
         String device = "/dev/" + storageDevice.getDevice();
         long storageDeviceSize = storageDevice.getSize();
         PartitionSizes partitionSizes
@@ -502,77 +516,7 @@ public class DLCopy {
             return false;
         }
     }
-    
-    private String   personalPassword;
-    private String   personalPasswordRepeat;
-
-    private String   masterPassword;
-    private String   masterPasswordRepeat;
-    
-    private String   initialPassword;
-
-    public String getPersonalPassword() {
-        return personalPassword;
-    }
-
-    public void setPersonalPassword(String personalPassword) {
-        this.personalPassword = personalPassword;
-    }
-
-    public String getPersonalPasswordRepeat() {
-        return personalPasswordRepeat;
-    }
-
-    public void setPersonalPasswordRepeat(String personalPasswordRepeat) {
-        this.personalPasswordRepeat = personalPasswordRepeat;
-    }
-
-    public String getMasterPassword() {
-        return masterPassword;
-    }
-
-    public void setMasterPassword(String masterPassword) {
-        this.masterPassword = masterPassword;
-    }
-
-    public String getMasterPasswordRepeat() {
-        return masterPasswordRepeat;
-    }
-
-    public void setMasterPasswordRepeat(String masterPasswordRepeat) {
-        this.masterPasswordRepeat = masterPasswordRepeat;
-    }
-
-    public String getInitialPassword() {
-        return initialPassword;
-    }
-
-    public void setInitialPassword(String initialPassword) {
-        this.initialPassword = initialPassword;
-    }
-
-    public String getInitialPaswordRepeat() {
-        return initialPaswordRepeat;
-    }
-
-    public void setInitialPaswordRepeat(String initialPaswordRepeat) {
-        this.initialPaswordRepeat = initialPaswordRepeat;
-    }
-
-    public String getSelectedUnlockingMethod() {
-        return selectedUnlockingMethod;
-    }
-
-    public void setSelectedUnlockingMethod(String selectedUnlockingMethod) {
-        this.selectedUnlockingMethod = selectedUnlockingMethod;
-    }
-    private String   initialPaswordRepeat;
-    
-    private String  selectedUnlockingMethod;
-    
-    
-
-       
+      
 
     /**
      * writes the currently used version of persistence.conf into a given path
@@ -608,21 +552,6 @@ public class DLCopy {
         if (isMounted(device)) {
             umount(device, dlCopyGUI);
         }
-        //real real magic mate is here
-        
-        /*
-             PROCESS_EXECUTOR.executeProcess("cryptsetup",
-                "--verbose", "--verify-passphrase","-s", "512", 
-                "luksFormate" +"/dev/"+ device.substring(5));
-        */
-             //Biping  stuff
-             //PROCESS_EXECUTOR.executeProcess("echo", "asdf","|" echo asdf | yes | cryptsetupt --verbose --verify-passhprase -s 512 luksFormate");
-                String copyScript = "#!/bin/sh" + '\n'
-                        + "cryptsetup --verbose --verify-passhprase -s 512 luksForate /dev/" + device.substring(5) + '\n'
-                        + "asdf " +'\n'
-                        + "asdf";
-                PROCESS_EXECUTOR.executeScript(copyScript);
-        
         
         // If we want to create a partition at the exact same location of
         // another type of partition mkfs becomes interactive.
@@ -686,9 +615,12 @@ public class DLCopy {
         }
 
         persistencePartition.umount();
-              
-
-      
+        
+        
+        String copyScript = "#!/bin/sh"+ '\n'
+                +"printf \""+ personalPassword +
+                "\" | cryptsetup -q luksFormat /dev/"+device.substring(5);
+        PROCESS_EXECUTOR.executeScript(copyScript);
     }
     
     /**
@@ -1900,4 +1832,22 @@ public class DLCopy {
             return storageDevice;
         }
     }
+
+    public void setSelectedMethod(String selectedMethod) {
+        this.selectedMethod = selectedMethod;
+    }
+
+    public void setPersonalPassword(String personalPassword) {
+        this.personalPassword = personalPassword;
+    }
+
+    public void setMasterPassword(String masterPassword) {
+        this.masterPassword = masterPassword;
+    }
+
+    public void setInitialPassword(String initialPassword) {
+        this.initialPassword = initialPassword;
+    }
+    
+    
 }

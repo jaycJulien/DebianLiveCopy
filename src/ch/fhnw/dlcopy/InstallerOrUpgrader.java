@@ -51,6 +51,11 @@ public abstract class InstallerOrUpgrader
 
     private final String exhangePartitionFileSystem;
     private final String dataPartitionFileSystem;
+    
+    private final String selectedMethod;
+    private final String personalPassword;
+    private final String masterPassword;
+    private final String initialPassword;
 
     /**
      * creates a new InstallerOrUpgrader
@@ -62,11 +67,16 @@ public abstract class InstallerOrUpgrader
      * partition
      * @param dataPartitionFileSystem the file system of the data partition
      * @param dlCopyGUI the graphical user interface
+     * @param selectedMethod
+     * @param personalPassword
+     * @param masterPassword
+     * @param initialPassword
      */
     public InstallerOrUpgrader(SystemSource source,
             List<StorageDevice> deviceList, String exchangePartitionLabel,
             String exhangePartitionFileSystem, String dataPartitionFileSystem,
-            DLCopyGUI dlCopyGUI) {
+            DLCopyGUI dlCopyGUI, String selectedMethod, String personalPassword,
+            String masterPassword, String initialPassword) {
         this.source = source;
         this.deviceList = deviceList;
         this.exchangePartitionLabel = exchangePartitionLabel;
@@ -74,6 +84,11 @@ public abstract class InstallerOrUpgrader
         this.dataPartitionFileSystem = dataPartitionFileSystem;
         this.dlCopyGUI = dlCopyGUI;
         deviceListSize = deviceList.size();
+        this.selectedMethod = selectedMethod;
+        this.personalPassword = personalPassword;
+        this.masterPassword = masterPassword;
+        this.initialPassword = initialPassword;
+        
     }
 
     /**
@@ -132,5 +147,22 @@ public abstract class InstallerOrUpgrader
      */
     public long getSourceSystemSize() {
         return source.getSystemSize();
+    }
+    
+        // Getter and Setter methods
+      public String getInitialPassword() {
+        return initialPassword;
+    }
+
+    public String getSelectedMethod() {
+        return selectedMethod;
+    }
+
+    public String getPersonalPassword() {
+        return personalPassword;
+    }
+
+    public String getMasterPassword() {
+        return masterPassword;
     }
 }

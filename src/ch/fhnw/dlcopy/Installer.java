@@ -30,7 +30,9 @@ public class Installer extends InstallerOrUpgrader
     private int autoNumber;
     private final boolean copyDataPartition;
     private final DataPartitionMode dataPartitionMode;
+    
 
+ 
     /**
      * creates a new Installer
      *
@@ -49,6 +51,10 @@ public class Installer extends InstallerOrUpgrader
      * @param copyDataPartition if the data partition should be copied
      * @param dataPartitionMode the mode of the data partition to set in the
      * bootloaders config
+     * @param selectedMethod
+     * @param personalPassword
+     * @param masterPassword
+     * @param initialPassword
      */
     public Installer(SystemSource source, List<StorageDevice> deviceList,
             String exchangePartitionLabel, String exchangePartitionFileSystem,
@@ -56,11 +62,14 @@ public class Installer extends InstallerOrUpgrader
             int exchangePartitionSize, boolean copyExchangePartition,
             int autoNumberStart, int autoNumberIncrement,
             String autoNumberPattern, boolean copyDataPartition,
-            DataPartitionMode dataPartitionMode) {
+            DataPartitionMode dataPartitionMode,
+            String selectedMethod,
+            String personalPassword,String masterPassword, String initialPassword) {
 
         super(source, deviceList, exchangePartitionLabel,
                 exchangePartitionFileSystem, dataPartitionFileSystem,
-                dlCopyGUI);
+                dlCopyGUI, selectedMethod, 
+                personalPassword, masterPassword, initialPassword);
 
         this.exchangePartitionSize = exchangePartitionSize;
         this.copyExchangePartition = copyExchangePartition;

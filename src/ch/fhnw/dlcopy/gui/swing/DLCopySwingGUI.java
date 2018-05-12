@@ -969,8 +969,6 @@ public class DLCopySwingGUI extends JFrame
             }
         });
     }
-    
- 
 
     /**
      * sets the text on a JLabel to display info about a StorageDevice
@@ -3593,9 +3591,7 @@ public class DLCopySwingGUI extends JFrame
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         getdataPartitionTabCredentials();
-        
-        
-        
+
         switch (state) {
 
             case INSTALL_INFORMATION:
@@ -3681,8 +3677,8 @@ public class DLCopySwingGUI extends JFrame
 
             default:
                 LOGGER.log(Level.WARNING, "unsupported state {0}", state);
-        } 
-        
+        }
+
     }//GEN-LAST:event_nextButtonActionPerformed
 
     private void previousButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousButtonActionPerformed
@@ -5030,6 +5026,8 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
         for (int i : selectedIndices) {
             deviceList.add(installStorageDeviceListModel.get(i));
         }
+
+        // switch case to get the different password types
         Object selectedFileSystem
                 = exchangePartitionFileSystemComboBox.getSelectedItem();
         String exchangePartitionFileSystem = selectedFileSystem.toString();
@@ -5049,7 +5047,8 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
                 exchangePartitionFileSystem, dataPartitionFileSystem, this,
                 exchangePartitionSizeSlider.getValue(), copyExchange,
                 autoNumber, autoIncrement, autoNumberPatternTextField.getText(),
-                copyData, dataPartitionMode).execute();
+                copyData, dataPartitionMode, selectedMethod,
+                personalPassword, masterPassword, initialPassword).execute();
     }
 
     private void upgrade() {
@@ -5449,87 +5448,144 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
             disableNextButton();
         }
     }
-    
-    
-    /**
-     * 
-     * 
-     * 
-     */
-    private String  personalPassword;
-    private String   personalPasswordRepeat;
 
-    private String  masterPassword;
-    private String   masterPasswordRepeat;
-    
-    private String  initialPassword;
-    private String   initialPaswordRepeat;
+    /**
+     *
+     *
+     *
+     */
+    private String selectedMethod;
+
+    private String personalPassword;
+    private String personalPasswordRepeat;
+
+    private String masterPassword;
+    private String masterPasswordRepeat;
+
+    private String initialPassword;
+    private String initialPaswordRepeat;
+
     private enum UNLOCK_LOCK_METHOD {
         NO_PASSWORD,
         PERSONAL_PASSWORD,
         MASTER_INITIAL_PASSWORD;
     }
 
+    public void setSelectedMethod(String selectedMethod) {
+        this.selectedMethod = selectedMethod;
+    }
+
+    public String getSelectedMethod() {
+        return selectedMethod;
+    }
+
+    public void setpersonalPassword(String selectedMethod) {
+        this.selectedMethod = selectedMethod;
+    }
+
+    public String getPersonalPassword() {
+        return personalPassword;
+    }
+
+    public void setPersonalPassword(String personalPassword) {
+        this.personalPassword = personalPassword;
+    }
+
+    public String getPersonalPasswordRepeat() {
+        return personalPasswordRepeat;
+    }
+
+    public void setPersonalPasswordRepeat(String personalPasswordRepeat) {
+        this.personalPasswordRepeat = personalPasswordRepeat;
+    }
+
+    public String getMasterPassword() {
+        return masterPassword;
+    }
+
+    public void setMasterPassword(String masterPassword) {
+        this.masterPassword = masterPassword;
+    }
+
+    public String getMasterPasswordRepeat() {
+        return masterPasswordRepeat;
+    }
+
+    public void setMasterPasswordRepeat(String masterPasswordRepeat) {
+        this.masterPasswordRepeat = masterPasswordRepeat;
+    }
+
+    public String getInitialPassword() {
+        return initialPassword;
+    }
+
+    public void setInitialPassword(String initialPassword) {
+        this.initialPassword = initialPassword;
+    }
+
+    public String getInitialPaswordRepeat() {
+        return initialPaswordRepeat;
+    }
+
+    public void setInitialPaswordRepeat(String initialPaswordRepeat) {
+        this.initialPaswordRepeat = initialPaswordRepeat;
+    }
+
     private void getdataPartitionTabCredentials() {
-   /*     if(personalPWTF.getPassword() == null ) {
+        /*     if(personalPWTF.getPassword() == null ) {
            System.out.println("personalPassword" +personalPassword);
         }*/
-   
-   if(noPWRadio.isSelected() == true) {
-       System.out.println("noPW Radaio is selected");
-   } else if(PersonalPFRadio.isSelected() == true) {
-       if(personalPWTF.getPassword() == null || 
-               repeatPersonalPFTF.getPassword() == null ){
-           System.out.println("a personal password is not set!");
-   } else{
-              System.out.println("Persoal PF Radaio is selected");
-              personalPassword = Arrays.toString(personalPWTF.getPassword());
-              personalPasswordRepeat = Arrays.toString(repeatPersonalPFTF.getPassword());
-              if(personalPassword.equals(personalPasswordRepeat)) {
 
-                             System.out.println("Personal Pass Phrases match: Personal Phrase :"+personalPassword + " ; Repeat Phrase:" +personalPasswordRepeat +";");
-              } else {
-                             showErrorMessage("Password does not match");
-                             System.out.println("Personal Phrases do not match!");
-              }
-   }
-   } else if(MasterInitialPFRadio.isSelected() == true) {
-             System.out.println("Master Initial Radio is selected");
-            if(masterPWTF.getPassword() == null || 
-                    repeatMasterPWTF.getPassword() == null ){
-           System.out.println("a master initial password is not set!");
-   } else{
-              masterPassword = Arrays.toString(masterPWTF.getPassword());
-              masterPasswordRepeat = Arrays.toString(repeatMasterPWTF.getPassword());
-              if(masterPassword.equals(masterPasswordRepeat)) {
-                             System.out.println("Master Pass Phrases match: Masterpass Phrase :"+masterPassword + " ; Repeat Phrase:" +masterPasswordRepeat +";");
-              } else {
-                             System.out.println("Master pass Phrases do not match!");       
-                             showErrorMessage("The passwords do not match!");  
-              }
-   }
-   }
-   }
-   
-   //check which chechbox has been selected
-   //if checkbox no password has been selected, go on with the program
-   //==> globally known password used for decryption
-  
-   //if checkbox master password selected
-   //
-   
-   // ==> check if the amaster password has been entered
-   
-   // ==> check if the repetition of master password has been entered
-   
-   // ==> check if both password match with each other
-   
-   // check the master initial and repeat of masster initial pass phrase
-   
-   // if they dont match == alert, no contination of the program
-           
+        if (noPWRadio.isSelected() == true) {
+            System.out.println("noPW Radaio is selected");
+            setSelectedMethod(UNLOCK_LOCK_METHOD.NO_PASSWORD.toString());
 
-    
+        } else if (PersonalPFRadio.isSelected() == true) {
+            if (personalPWTF.getPassword() == null
+                    || repeatPersonalPFTF.getPassword() == null) {
+                System.out.println("a personal password is not set!");
+            } else {
+                System.out.println("Persoal PF Radaio is selected");
+                personalPassword = Arrays.toString(personalPWTF.getPassword());
+                personalPasswordRepeat = Arrays.toString(repeatPersonalPFTF.getPassword());
+                if (personalPassword.equals(personalPasswordRepeat)) {
+                    setSelectedMethod(UNLOCK_LOCK_METHOD.PERSONAL_PASSWORD.toString());
+
+                    System.out.println("Personal Pass Phrases match: Personal Phrase :" + personalPassword + " ; Repeat Phrase:" + personalPasswordRepeat + ";");
+                } else {
+                    showErrorMessage("Password does not match");
+                    System.out.println("Personal Phrases do not match!");
+                }
+            }
+        } else if (MasterInitialPFRadio.isSelected() == true) {
+            System.out.println("Master Initial Radio is selected");
+            if (masterPWTF.getPassword() == null
+                    || repeatMasterPWTF.getPassword() == null) {
+                System.out.println("a master initial password is not set!");
+            } else {
+                masterPassword = Arrays.toString(masterPWTF.getPassword());
+                masterPasswordRepeat = Arrays.toString(repeatMasterPWTF.getPassword());
+                if (masterPassword.equals(masterPasswordRepeat)) {
+                    setSelectedMethod(UNLOCK_LOCK_METHOD.MASTER_INITIAL_PASSWORD.toString());
+                    System.out.println("Master Pass Phrases match: Masterpass Phrase :" + masterPassword + " ; Repeat Phrase:" + masterPasswordRepeat + ";");
+                } else {
+                    System.out.println("Master pass Phrases do not match!");
+                    showErrorMessage("The passwords do not match!");
+                }
+            }
+        }
+    }
+
+    //check which chechbox has been selected
+    //if checkbox no password has been selected, go on with the program
+    //==> globally known password used for decryption
+    //if checkbox master password selected
+    //
+    // ==> check if the amaster password has been entered
+    // ==> check if the repetition of master password has been entered
+    // ==> check if both password match with each other
+    // check the master initial and repeat of masster initial pass phrase
+    // if they dont match == alert, no contination of the program
     private void storageDeviceListChanged(DefaultListModel<StorageDevice> model,
             JPanel panel, String noMediaPanelName, String selectionPanelName,
             StorageDeviceRenderer renderer, JList list) {
