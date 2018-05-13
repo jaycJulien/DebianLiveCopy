@@ -80,8 +80,7 @@ public class DLCopy {
      private  static String personalPassword;
      private  static String masterPassword;
      private static  String initialPassword;
-     
-     public static String passphrase = "";
+     public static String globallyKnownPassword = "DepianLiveCopy";
      
 
     static {
@@ -620,65 +619,47 @@ public class DLCopy {
         }
 
         persistencePartition.umount();
-        
-        // firstly:
-        //add already globally known passphrase adn open luksFormat
-        //`> so ther is already a key inside the keymanager
-        // dann kommt switch case
-        //wenn no passowrdm  mach ncihts
-        // wenn personal `> ändre keyslot 0 von globally known zu personal
-        // wenn master 
-        
-        /**
-     * the variable that would be filled with the passphrases sent
-     */
-   // public String GLOBALLY_KNOWN_PASSPHRASE = "DebianLiveCopy";
-             
-        
-         //two shell scripts for LUKS
-                
-                
-                 
-        
+       
         switch (selectedMethod) {
             case "NO_PASSWORD":
-                //passphrase = GLOBALLY_KNOWN_PASSPHRASE;
-                String luksNoPassword= "#!/bin/sh"+ '\n'
-                +"printf \""+ passphrase +
-                "\" | cryptsetup -q luksFormat --key-slot 0 /dev/"+device.substring(5);
-                PROCESS_EXECUTOR.executeScript(luksNoPassword);
-                dlCopyGUI.showErrorMessage("IT ENTEREDDD");
+                String noPasswordLuksScript = createLuksFormatScript(globallyKnownPassword,device.substring(5));
+                PROCESS_EXECUTOR.executeScript(noPasswordLuksScript);
+                dlCopyGUI.showErrorMessage("IT ENTERED no password" + " " + noPasswordLuksScript);
                 break;
 
             case "PERSONAL_PASSWORD":
-                passphrase = personalPassword;
-                String luksPersonal = "#!/bin/sh"+ '\n'
-                +"printf \""+ passphrase +
-                "\" | cryptsetup -q luksFormat --key-slot 0 /dev/"+device.substring(5);
-                
-                PROCESS_EXECUTOR.executeScript(luksPersonal);
-                dlCopyGUI.showErrorMessage("IT ENTEREDDD in PERSONAL "+passphrase + "  "+luksPersonal );
-
+                String personalMethodLuksScript = createLuksFormatScript(personalPassword,device.substring(5));
+                PROCESS_EXECUTOR.executeScript(personalMethodLuksScript);
+                dlCopyGUI.showErrorMessage("IT ENTERED in PERSONAL "+personalPassword + "  "+personalMethodLuksScript);
                 break;
 
             case "MASTER_INITIAL_PASSWORD":
-                passphrase = initialPassword;
-                String luksMaster = "#!/bin/sh"+ '\n'
-                +"printf \""+ passphrase +
-                "\" | cryptsetup -q luksFormat --key-slot 0 /dev/"+device.substring(5);
-                String luksAddKey = "#!/bin/sh"+ '\n'
+                 String initialMethodLuksScript = createLuksFormatScript(initialPassword,device.substring(5));
+               /* String luksAddKey = "#!/bin/sh"+ '\n'
                 +"printf \""+ masterPassword 
                 +" | printf \""+ passphrase +
-                "\" | cryptsetup -q luksAddKey --key-slot 1 /dev/"+device.substring(5);
-                PROCESS_EXECUTOR.executeScript(luksMaster);
-                PROCESS_EXECUTOR.executeScript(luksAddKey);
-                dlCopyGUI.showErrorMessage("IT ENTEREDDD in MasterMethod");
+                "\" | cryptsetup -q luksAddKey --key-slot 1 /dev/"+device.substring(5);*/
+                PROCESS_EXECUTOR.executeScript(initialMethodLuksScript);
+                //PROCESS_EXECUTOR.executeScript(luksAddKey);
+                dlCopyGUI.showErrorMessage("IT ENTERED in MasterMethod");
 
                 break;
-
+                
+                default:
+                   dlCopyGUI.showErrorMessage("The USB stick can not be locked");
+                
+                break;
+     
         }
-        
-       
+    }
+    
+    
+    //Create the luksFormat shell script
+    private static String createLuksFormatScript(String passphrase, String partition){
+     String script = "#!/bin/sh"+ '\n'
+                +"printf \""+ passphrase +
+                "\" | cryptsetup -q luksFormat --key-slot 0 /dev/"+partition;
+     return script;
     }
     
     /**
