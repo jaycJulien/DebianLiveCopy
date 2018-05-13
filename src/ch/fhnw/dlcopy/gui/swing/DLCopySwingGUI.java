@@ -5540,43 +5540,41 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
         }*/
 
         if (noPWRadio.isSelected() == true) {
-            System.out.println("noPW Radaio is selected");
             setSelectedMethod(UNLOCK_LOCK_METHOD.NO_PASSWORD.toString());
 
         } else if (PersonalPFRadio.isSelected() == true) {
             if (personalPWTF.getPassword() == null
                     || repeatPersonalPFTF.getPassword() == null) {
-                System.out.println("a personal password is not set!");
             } else {
-                System.out.println("Persoal PF Radaio is selected");
                // setPersonalPassword(Arrays.toString(personalPWTF.getPassword()));
                 setPersonalPassword(new String(personalPWTF.getPassword()));
 
-                System.out.println("theAcrualPassphrase **************"+getPersonalPassword());
                 setPersonalPasswordRepeat(new String(repeatPersonalPFTF.getPassword()));
                 if (personalPassword.equals(personalPasswordRepeat)) {
                     setSelectedMethod(UNLOCK_LOCK_METHOD.PERSONAL_PASSWORD.toString());
-                    System.out.println("Personal Pass Phrases match: Personal Phrase :" + personalPassword + " ; Repeat Phrase:" + personalPasswordRepeat + ";");
                 } else {
                     showErrorMessage("Password does not match");
-                    System.out.println("Personal Phrases do not match!");
                 }
             }
         } else if (MasterInitialPFRadio.isSelected() == true) {
-            System.out.println("Master Initial Radio is selected");
             if (masterPWTF.getPassword() == null
-                    || repeatMasterPWTF.getPassword() == null) {
-                System.out.println("a master initial password is not set!");
+                    || repeatMasterPWTF.getPassword() == null
+                   || intialPWTF.getPassword() == null
+                    || repeatInitialPWTF.getPassword() == null) {
             } else {
-                masterPassword = Arrays.toString(masterPWTF.getPassword());
-                masterPasswordRepeat = Arrays.toString(repeatMasterPWTF.getPassword());
-                if (masterPassword.equals(masterPasswordRepeat)) {
+                
+                setMasterPasswordRepeat(new String(repeatMasterPWTF.getPassword()));
+                setMasterPassword(new String(masterPWTF.getPassword()));
+                
+                setInitialPassword(new String(intialPWTF.getPassword()));
+                setInitialPaswordRepeat(new String(repeatInitialPWTF.getPassword()));
+                
+                if ((masterPassword.equals(masterPasswordRepeat)) && (initialPassword.equals(initialPaswordRepeat)) ) {
                     setSelectedMethod(UNLOCK_LOCK_METHOD.MASTER_INITIAL_PASSWORD.toString());
-                    System.out.println("Master Pass Phrases match: Masterpass Phrase :" + masterPassword + " ; Repeat Phrase:" + masterPasswordRepeat + ";");
                 } else {
-                    System.out.println("Master pass Phrases do not match!");
                     showErrorMessage("The passwords do not match!");
                 }
+                
             }
         }
     }
