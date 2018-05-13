@@ -65,6 +65,8 @@ public class DLCopy {
      * the label to use for the system partition
      */
     public static String systemPartitionLabel;
+    
+    
 
     private static final Logger LOGGER
             = Logger.getLogger(DLCopy.class.getName());
@@ -78,6 +80,8 @@ public class DLCopy {
      private  static String personalPassword;
      private  static String masterPassword;
      private static  String initialPassword;
+     
+     public static String passphrase = "";
      
 
     static {
@@ -223,11 +227,6 @@ public class DLCopy {
             personalPassword = installerOrUpgrader.getPersonalPassword();
             initialPassword = installerOrUpgrader.getInitialPassword();
             
-            System.out.print("SELECTEDMETHOD************:"+ selectedMethod );
-            System.out.print("MASTERPASS************:"+ masterPassword );
-            System.out.print("PERSONALPASS************:"+ personalPassword );
-            System.out.print("INITIALPASS************:"+ initialPassword );
-
                 // determine size and state
         String device = "/dev/" + storageDevice.getDevice();
         long storageDeviceSize = storageDevice.getSize();
@@ -549,6 +548,7 @@ public class DLCopy {
      * @throws DBusException if a DBusException occurs
      * @throws IOException if an IOException occurs
      */
+    
     public static void formatPersistencePartition(
             String device, String fileSystem, DLCopyGUI dlCopyGUI)
             throws DBusException, IOException {
@@ -621,29 +621,64 @@ public class DLCopy {
 
         persistencePartition.umount();
         
-        //private String passphrase;
-        /*
+        // firstly:
+        //add already globally known passphrase adn open luksFormat
+        //`> so ther is already a key inside the keymanager
+        // dann kommt switch case
+        //wenn no passowrdm  mach ncihts
+        // wenn personal `> ändre keyslot 0 von globally known zu personal
+        // wenn master 
+        
+        /**
+     * the variable that would be filled with the passphrases sent
+     */
+   // public String GLOBALLY_KNOWN_PASSPHRASE = "DebianLiveCopy";
+             
+        
+         //two shell scripts for LUKS
+                
+                
+                 
+        
         switch (selectedMethod) {
             case "NO_PASSWORD":
-                passphrase = "DebianLiveCopy";
+                //passphrase = GLOBALLY_KNOWN_PASSPHRASE;
+                String luksNoPassword= "#!/bin/sh"+ '\n'
+                +"printf \""+ passphrase +
+                "\" | cryptsetup -q luksFormat --key-slot 0 /dev/"+device.substring(5);
+                PROCESS_EXECUTOR.executeScript(luksNoPassword);
+                dlCopyGUI.showErrorMessage("IT ENTEREDDD");
                 break;
+
             case "PERSONAL_PASSWORD":
                 passphrase = personalPassword;
+                String luksPersonal = "#!/bin/sh"+ '\n'
+                +"printf \""+ passphrase +
+                "\" | cryptsetup -q luksFormat --key-slot 0 /dev/"+device.substring(5);
+                
+                PROCESS_EXECUTOR.executeScript(luksPersonal);
+                dlCopyGUI.showErrorMessage("IT ENTEREDDD in PERSONAL "+passphrase + "  "+luksPersonal );
+
                 break;
+
+            case "MASTER_INITIAL_PASSWORD":
+                passphrase = initialPassword;
+                String luksMaster = "#!/bin/sh"+ '\n'
+                +"printf \""+ passphrase +
+                "\" | cryptsetup -q luksFormat --key-slot 0 /dev/"+device.substring(5);
+                String luksAddKey = "#!/bin/sh"+ '\n'
+                +"printf \""+ masterPassword 
+                +" | printf \""+ passphrase +
+                "\" | cryptsetup -q luksAddKey --key-slot 1 /dev/"+device.substring(5);
+                PROCESS_EXECUTOR.executeScript(luksMaster);
+                PROCESS_EXECUTOR.executeScript(luksAddKey);
+                dlCopyGUI.showErrorMessage("IT ENTEREDDD in MasterMethod");
+
+                break;
+
         }
-        System.out.println("definite passphrase: "+passphrase);
-        */
         
-               // NO_PASSWORD,
-       // PERSONAL_PASSWORD,
-        //MASTER_INITIAL_PASSWORD;
- 
-        
-        String copyScript = "#!/bin/sh"+ '\n'
-                +"printf \""+ "hoho" +
-                "\" | cryptsetup -q luksFormat /dev/"+device.substring(5);
-        System.err.println("personal password from the method of format is "+personalPassword);
-        PROCESS_EXECUTOR.executeScript(copyScript);
+       
     }
     
     /**
