@@ -60,7 +60,7 @@ public class DLCopy {
      * the size of the efi partition (given in MiB)
      */
     public static final long EFI_PARTITION_SIZE = 10;
-
+    
     /**
      * the label to use for the system partition
      */
@@ -223,6 +223,11 @@ public class DLCopy {
             personalPassword = installerOrUpgrader.getPersonalPassword();
             initialPassword = installerOrUpgrader.getInitialPassword();
             
+            System.out.print("SELECTEDMETHOD************:"+ selectedMethod );
+            System.out.print("MASTERPASS************:"+ masterPassword );
+            System.out.print("PERSONALPASS************:"+ personalPassword );
+            System.out.print("INITIALPASS************:"+ initialPassword );
+
                 // determine size and state
         String device = "/dev/" + storageDevice.getDevice();
         long storageDeviceSize = storageDevice.getSize();
@@ -616,8 +621,26 @@ public class DLCopy {
 
         persistencePartition.umount();
         
+        //private String passphrase;
+        /*
+        switch (selectedMethod) {
+            case "NO_PASSWORD":
+                passphrase = "DebianLiveCopy";
+                break;
+            case "PERSONAL_PASSWORD":
+                passphrase = personalPassword;
+                break;
+        }
+        System.out.println("definite passphrase: "+passphrase);
+        */
+        
+               // NO_PASSWORD,
+       // PERSONAL_PASSWORD,
+        //MASTER_INITIAL_PASSWORD;
+ 
+        
         String copyScript = "#!/bin/sh"+ '\n'
-                +"printf \""+ personalPassword +
+                +"printf \""+ "hoho" +
                 "\" | cryptsetup -q luksFormat /dev/"+device.substring(5);
         System.err.println("personal password from the method of format is "+personalPassword);
         PROCESS_EXECUTOR.executeScript(copyScript);

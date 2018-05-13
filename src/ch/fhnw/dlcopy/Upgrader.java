@@ -107,11 +107,14 @@ public class Upgrader extends InstallerOrUpgrader {
             boolean upgradeSystemPartition, boolean keepPrinterSettings,
             boolean keepNetworkSettings, boolean keepFirewallSettings,
             boolean reactivateWelcome, boolean removeHiddenFiles,
-            List<String> filesToOverwrite, long systemSizeEnlarged) {
+            List<String> filesToOverwrite, long systemSizeEnlarged,
+              String selectedMethod,
+            String personalPassword,String masterPassword, String initialPassword) {
 
         super(source, deviceList, exchangePartitionLabel,
                 exchangePartitionFileSystem, dataPartitionFileSystem,
-                dlCopyGUI);
+                dlCopyGUI,selectedMethod, 
+                personalPassword, masterPassword, initialPassword);
 
         this.repartitionStrategy = repartitionStrategy;
         this.resizedExchangePartitionSize = resizedExchangePartitionSize;

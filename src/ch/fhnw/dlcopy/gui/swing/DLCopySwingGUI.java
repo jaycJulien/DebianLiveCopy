@@ -5049,6 +5049,7 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
                 autoNumber, autoIncrement, autoNumberPatternTextField.getText(),
                 copyData, dataPartitionMode, selectedMethod,
                 personalPassword, masterPassword, initialPassword).execute();
+        System.out.println("personalpasswordin insatlle"+personalPassword);
     }
 
     private void upgrade() {
@@ -5206,7 +5207,9 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
                 reactivateWelcomeCheckBox.isSelected(),
                 removeHiddenFilesCheckBox.isSelected(), overWriteList,
                 DLCopy.getEnlargedSystemSize(
-                        runningSystemSource.getSystemSize()))
+                        runningSystemSource.getSystemSize()),
+                selectedMethod,
+                personalPassword, masterPassword, initialPassword)
                 .execute();
     }
 
@@ -5546,11 +5549,13 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
                 System.out.println("a personal password is not set!");
             } else {
                 System.out.println("Persoal PF Radaio is selected");
-                personalPassword = Arrays.toString(personalPWTF.getPassword());
-                personalPasswordRepeat = Arrays.toString(repeatPersonalPFTF.getPassword());
+               // setPersonalPassword(Arrays.toString(personalPWTF.getPassword()));
+                setPersonalPassword(new String(personalPWTF.getPassword()));
+
+                System.out.println("theAcrualPassphrase **************"+getPersonalPassword());
+                setPersonalPasswordRepeat(new String(repeatPersonalPFTF.getPassword()));
                 if (personalPassword.equals(personalPasswordRepeat)) {
                     setSelectedMethod(UNLOCK_LOCK_METHOD.PERSONAL_PASSWORD.toString());
-
                     System.out.println("Personal Pass Phrases match: Personal Phrase :" + personalPassword + " ; Repeat Phrase:" + personalPasswordRepeat + ";");
                 } else {
                     showErrorMessage("Password does not match");
