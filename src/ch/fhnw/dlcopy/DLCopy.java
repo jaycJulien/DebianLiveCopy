@@ -640,7 +640,6 @@ public class DLCopy {
                 PROCESS_EXECUTOR.executeScript(initialMethodLuksScript);
                 PROCESS_EXECUTOR.executeScript(addMasterKeyScript);
                 dlCopyGUI.showErrorMessage("IT ENTERED in MasterMethod" + "intial is "+initialPassword+ " the master is "+masterPassword + "the addKeyScript is "+addMasterKeyScript);
-
                 break;
                 
                 default:
