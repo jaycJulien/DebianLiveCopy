@@ -80,7 +80,7 @@ public class DLCopy {
      private  static String personalPassword;
      private  static String masterPassword;
      private static  String initialPassword;
-     public static String globallyKnownPassword = "DepianLiveCopy";
+     public static String globallyKnownPassword = "DebianLiveCopy";
      
 
     static {
@@ -635,13 +635,11 @@ public class DLCopy {
 
             case "MASTER_INITIAL_PASSWORD":
                  String initialMethodLuksScript = createLuksFormatScript(initialPassword,device.substring(5));
-               /* String luksAddKey = "#!/bin/sh"+ '\n'
-                +"printf \""+ masterPassword 
-                +" | printf \""+ passphrase +
-                "\" | cryptsetup -q luksAddKey --key-slot 1 /dev/"+device.substring(5);*/
+               
+                 String addMasterKeyScript = createLuksAddKeyScript(initialPassword, masterPassword, device.substring(5), 1);
                 PROCESS_EXECUTOR.executeScript(initialMethodLuksScript);
-                //PROCESS_EXECUTOR.executeScript(luksAddKey);
-                dlCopyGUI.showErrorMessage("IT ENTERED in MasterMethod");
+                PROCESS_EXECUTOR.executeScript(addMasterKeyScript);
+                dlCopyGUI.showErrorMessage("IT ENTERED in MasterMethod" + "intial is "+initialPassword+ " the master is "+masterPassword + "the addKeyScript is "+addMasterKeyScript);
 
                 break;
                 
@@ -662,6 +660,14 @@ public class DLCopy {
      return script;
     }
     
+    
+     //Create the luksAddKey shell script
+     private static String createLuksAddKeyScript(String actualKey, String newKey, String partition, int slotNumber){
+     String script = "#!/bin/sh"+ '\n'
+                +"printf '%s\n' \""+actualKey+"\" \""+newKey+"\" \""+newKey+"\""
+                + " | cryptsetup luksAddKey -q --key-slot "+slotNumber+" /dev/"+partition;
+     return script;
+    }
     /**
      * creates a CopyJobsInfo for a given source / destination combination
      *
