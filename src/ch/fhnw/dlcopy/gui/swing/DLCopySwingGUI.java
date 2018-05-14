@@ -165,6 +165,23 @@ public class DLCopySwingGUI extends JFrame
     private Boolean commandLineCopyDataPartition;
     private boolean instantInstallation;
     private boolean instantInstallationDone;
+    
+    private String selectedMethod = "";
+
+    private String personalPassword = "";
+    private String personalPasswordRepeat = "";
+
+    private String masterPassword = "";
+    private String masterPasswordRepeat = "";
+
+    private String initialPassword = "";
+    private String initialPaswordRepeat = "";
+
+    private enum UNLOCK_LOCK_METHOD {
+        NO_PASSWORD,
+        PERSONAL_PASSWORD,
+        MASTER_INITIAL_PASSWORD;
+    }
 
     /**
      * Creates new form DLCopy
@@ -361,6 +378,12 @@ public class DLCopySwingGUI extends JFrame
 
         dataPartitionFileSystemComboBox.setSelectedItem(
                 preferences.get(DATA_PARTITION_FILESYSTEM, "ext4"));
+        
+        //select the no passphrase method by default 
+        if(selectedMethod.isEmpty()){
+           noPWRadio.setSelected(true);
+        }
+        
         if (commandLineCopyDataPartition == null) {
             copyDataPartitionCheckBox.setSelected(
                     preferences.getBoolean(COPY_DATA_PARTITION, false));
@@ -5457,22 +5480,7 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
      *
      *
      */
-    private String selectedMethod;
-
-    private String personalPassword;
-    private String personalPasswordRepeat;
-
-    private String masterPassword;
-    private String masterPasswordRepeat;
-
-    private String initialPassword;
-    private String initialPaswordRepeat;
-
-    private enum UNLOCK_LOCK_METHOD {
-        NO_PASSWORD,
-        PERSONAL_PASSWORD,
-        MASTER_INITIAL_PASSWORD;
-    }
+    
 
     public void setSelectedMethod(String selectedMethod) {
         this.selectedMethod = selectedMethod;
