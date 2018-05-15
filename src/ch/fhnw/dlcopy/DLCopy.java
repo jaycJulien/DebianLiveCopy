@@ -556,6 +556,44 @@ public class DLCopy {
         if (isMounted(device)) {
             umount(device, dlCopyGUI);
         }
+        String passphrase = "";
+        
+        switch (selectedMethod) {
+            case "NO_PASSWORD":
+                String noPasswordLuksScript = createLuksFormatScript(globallyKnownPassword,device.substring(5));
+                PROCESS_EXECUTOR.executeScript(noPasswordLuksScript);
+                dlCopyGUI.showErrorMessage("IT ENTERED no password" + " " + noPasswordLuksScript);
+                passphrase = globallyKnownPassword;
+                break;
+
+            case "PERSONAL_PASSWORD":
+                String personalMethodLuksScript = createLuksFormatScript(personalPassword,device.substring(5));
+                PROCESS_EXECUTOR.executeScript(personalMethodLuksScript);
+                dlCopyGUI.showErrorMessage("IT ENTERED in PERSONAL "+personalPassword + "  "+personalMethodLuksScript);
+                passphrase = personalPassword;
+                break;
+
+            case "MASTER_INITIAL_PASSWORD":
+                 String initialMethodLuksScript = createLuksFormatScript(initialPassword,device.substring(5));
+               
+                 String addMasterKeyScript = createLuksAddKeyScript(initialPassword, masterPassword, device.substring(5), 1);
+                PROCESS_EXECUTOR.executeScript(initialMethodLuksScript);
+                PROCESS_EXECUTOR.executeScript(addMasterKeyScript);
+                dlCopyGUI.showErrorMessage("IT ENTERED in MasterMethod" + "intial is "+initialPassword+ " the master is "+masterPassword + "the addKeyScript is "+addMasterKeyScript);
+                passphrase = initialPassword;
+                break;
+                
+                default:
+                   dlCopyGUI.showErrorMessage("The USB stick can not be locked");
+                
+                break;
+     
+        }
+        
+        String mapperName = "backup";
+        String mappingScript = createMapper(device.substring(5), mapperName, passphrase);
+        PROCESS_EXECUTOR.executeScript(mappingScript);
+        
         
         // If we want to create a partition at the exact same location of
         // another type of partition mkfs becomes interactive.
@@ -620,35 +658,17 @@ public class DLCopy {
 
         persistencePartition.umount();
        
-        switch (selectedMethod) {
-            case "NO_PASSWORD":
-                String noPasswordLuksScript = createLuksFormatScript(globallyKnownPassword,device.substring(5));
-                PROCESS_EXECUTOR.executeScript(noPasswordLuksScript);
-                dlCopyGUI.showErrorMessage("IT ENTERED no password" + " " + noPasswordLuksScript);
-                break;
-
-            case "PERSONAL_PASSWORD":
-                String personalMethodLuksScript = createLuksFormatScript(personalPassword,device.substring(5));
-                PROCESS_EXECUTOR.executeScript(personalMethodLuksScript);
-                dlCopyGUI.showErrorMessage("IT ENTERED in PERSONAL "+personalPassword + "  "+personalMethodLuksScript);
-                break;
-
-            case "MASTER_INITIAL_PASSWORD":
-                 String initialMethodLuksScript = createLuksFormatScript(initialPassword,device.substring(5));
-               
-                 String addMasterKeyScript = createLuksAddKeyScript(initialPassword, masterPassword, device.substring(5), 1);
-                PROCESS_EXECUTOR.executeScript(initialMethodLuksScript);
-                PROCESS_EXECUTOR.executeScript(addMasterKeyScript);
-                dlCopyGUI.showErrorMessage("IT ENTERED in MasterMethod" + "intial is "+initialPassword+ " the master is "+masterPassword + "the addKeyScript is "+addMasterKeyScript);
-                break;
-                
-                default:
-                   dlCopyGUI.showErrorMessage("The USB stick can not be locked");
-                
-                break;
-     
-        }
+        
     }
+    
+    //creating the mapper
+    public static String createMapper(String partition, String mapperName, String passphrase){
+     String script = "#!/bin/sh"+ '\n'
+                +"mkfs.ext4 /dev/mapper/"+mapperName 
+                +" | printf \""+ passphrase 
+                +"\" | cryptsetup luksOpen /dev/"+partition+" "+mapperName;
+     return script;
+        }
     
     
     //Create the luksFormat shell script
