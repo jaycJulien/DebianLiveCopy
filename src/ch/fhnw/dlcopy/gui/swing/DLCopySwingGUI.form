@@ -39,7 +39,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,43,0,0,3,123"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-84,0,0,3,-63"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
@@ -497,82 +497,79 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JLabel" name="installSelectionHeaderLabel">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
-                              <FontInfo relative="true">
-                                <Font bold="false" component="installSelectionHeaderLabel" property="font" relativeSize="true" size="0"/>
-                              </FontInfo>
-                            </Property>
-                            <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="Select_Install_Target_Storage_Media" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                            </Property>
-                          </Properties>
+                        <Container class="javax.swing.JTabbedPane" name="jTabbedPane2">
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="0.0"/>
-                            </Constraint>
-                          </Constraints>
-                        </Component>
-                        <Component class="javax.swing.JCheckBox" name="installShowHarddisksCheckBox">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
-                              <FontInfo relative="true">
-                                <Font bold="false" component="installShowHarddisksCheckBox" property="font" relativeSize="true" size="-1"/>
-                              </FontInfo>
-                            </Property>
-                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.installShowHarddisksCheckBox.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                            </Property>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="installShowHarddisksCheckBoxItemStateChanged"/>
-                          </Events>
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
-                            </Constraint>
-                          </Constraints>
-                        </Component>
-                        <Container class="javax.swing.JPanel" name="installSelectionCardPanel">
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="1.0" weightY="1.0"/>
+                              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
                             </Constraint>
                           </Constraints>
 
-                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
                           <SubComponents>
-                            <Container class="javax.swing.JPanel" name="installListPanel">
+                            <Container class="javax.swing.JPanel" name="jPanel1">
                               <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                                  <CardConstraints cardName="installListPanel"/>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                                  <JTabbedPaneConstraints tabName="Selection">
+                                    <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                      <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.jPanel1.TabConstraints.tabTitle" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                    </Property>
+                                  </JTabbedPaneConstraints>
                                 </Constraint>
                               </Constraints>
 
                               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
                               <SubComponents>
-                                <Container class="javax.swing.JTabbedPane" name="installListTabbedPane">
+                                <Component class="javax.swing.JLabel" name="installSelectionHeaderLabel">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
+                                      <FontInfo relative="true">
+                                        <Font bold="false" component="installSelectionHeaderLabel" property="font" relativeSize="true" size="0"/>
+                                      </FontInfo>
+                                    </Property>
+                                    <Property name="horizontalAlignment" type="int" value="0"/>
+                                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                      <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="Select_Install_Target_Storage_Media" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                    </Property>
+                                  </Properties>
                                   <Constraints>
                                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="0.0"/>
+                                    </Constraint>
+                                  </Constraints>
+                                </Component>
+                                <Component class="javax.swing.JCheckBox" name="installShowHarddisksCheckBox">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
+                                      <FontInfo relative="true">
+                                        <Font bold="false" component="installShowHarddisksCheckBox" property="font" relativeSize="true" size="-1"/>
+                                      </FontInfo>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                      <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.installShowHarddisksCheckBox.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                    </Property>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="installShowHarddisksCheckBoxItemStateChanged"/>
+                                  </Events>
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                    </Constraint>
+                                  </Constraints>
+                                </Component>
+                                <Container class="javax.swing.JPanel" name="installSelectionCardPanel">
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="1.0" weightY="1.0"/>
                                     </Constraint>
                                   </Constraints>
 
-                                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
                                   <SubComponents>
-                                    <Container class="javax.swing.JPanel" name="exchangePartitionPanel">
+                                    <Container class="javax.swing.JPanel" name="installListPanel">
                                       <Constraints>
-                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                                          <JTabbedPaneConstraints tabName="Exchange partition (optional)">
-                                            <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.exchangePartitionPanel.TabConstraints.tabTitle" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                            <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                              <Image iconType="3" name="/ch/fhnw/dlcopy/icons/yellow_box.png"/>
-                                            </Property>
-                                          </JTabbedPaneConstraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                                          <CardConstraints cardName="installListPanel"/>
                                         </Constraint>
                                       </Constraints>
 
@@ -613,685 +610,31 @@
                                             </Component>
                                           </SubComponents>
                                         </Container>
-                                        <Component class="javax.swing.JLabel" name="exchangeDefinitionLabel">
-                                          <Properties>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
-                                              <FontInfo relative="true">
-                                                <Font bold="false" component="exchangeDefinitionLabel" property="font" relativeSize="true" size="-1"/>
-                                              </FontInfo>
-                                            </Property>
-                                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                              <Image iconType="3" name="/ch/fhnw/dlcopy/icons/yellow_box.png"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="ExchangePartitionDefinition" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="0" insetsRight="0" anchor="21" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JLabel" name="dataDefinitionLabel">
-                                          <Properties>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
-                                              <FontInfo relative="true">
-                                                <Font bold="false" component="dataDefinitionLabel" property="font" relativeSize="true" size="-1"/>
-                                              </FontInfo>
-                                            </Property>
-                                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                              <Image iconType="3" name="/ch/fhnw/dlcopy/icons/green_box.png"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DataPartitionDefinition" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="0" insetsRight="0" anchor="21" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JLabel" name="bootDefinitionLabel">
-                                          <Properties>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
-                                              <FontInfo relative="true">
-                                                <Font bold="false" component="bootDefinitionLabel" property="font" relativeSize="true" size="-1"/>
-                                              </FontInfo>
-                                            </Property>
-                                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                              <Image iconType="3" name="/ch/fhnw/dlcopy/icons/dark_blue_box.png"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="Boot_Definition" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="0" insetsRight="0" anchor="21" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JLabel" name="systemDefinitionLabel">
-                                          <Properties>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
-                                              <FontInfo relative="true">
-                                                <Font bold="false" component="systemDefinitionLabel" property="font" relativeSize="true" size="-1"/>
-                                              </FontInfo>
-                                            </Property>
-                                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                              <Image iconType="3" name="/ch/fhnw/dlcopy/icons/blue_box.png"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="System_Definition" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="10" insetsBottom="0" insetsRight="0" anchor="21" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JLabel" name="exchangePartitionSizeLabel">
-                                          <Properties>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="Size" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                            <Property name="enabled" type="boolean" value="false"/>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="10" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JSlider" name="exchangePartitionSizeSlider">
-                                          <Properties>
-                                            <Property name="maximum" type="int" value="0"/>
-                                            <Property name="paintLabels" type="boolean" value="true"/>
-                                            <Property name="paintTicks" type="boolean" value="true"/>
-                                            <Property name="enabled" type="boolean" value="false"/>
-                                          </Properties>
-                                          <Events>
-                                            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="exchangePartitionSizeSliderStateChanged"/>
-                                            <EventHandler event="componentResized" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="exchangePartitionSizeSliderComponentResized"/>
-                                          </Events>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="5" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JTextField" name="exchangePartitionSizeTextField">
-                                          <Properties>
-                                            <Property name="columns" type="int" value="7"/>
-                                            <Property name="horizontalAlignment" type="int" value="11"/>
-                                            <Property name="enabled" type="boolean" value="false"/>
-                                            <Property name="name" type="java.lang.String" value="exchangePartitionSizeTextField" noResource="true"/>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="5" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JLabel" name="exchangePartitionSizeUnitLabel">
-                                          <Properties>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.exchangePartitionSizeUnitLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                            <Property name="enabled" type="boolean" value="false"/>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="5" insetsBottom="0" insetsRight="10" anchor="10" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Container class="javax.swing.JPanel" name="exchangePartitionBottomPanel">
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="10" insetsBottom="5" insetsRight="0" anchor="17" weightX="1.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-
-                                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
-                                          <SubComponents>
-                                            <Container class="javax.swing.JPanel" name="exchangePartitionLabelPanel">
-                                              <Constraints>
-                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="3" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
-                                                </Constraint>
-                                              </Constraints>
-
-                                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
-                                              <SubComponents>
-                                                <Component class="javax.swing.JLabel" name="exchangePartitionLabel">
-                                                  <Properties>
-                                                    <Property name="horizontalAlignment" type="int" value="2"/>
-                                                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                                      <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="Label" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                                    </Property>
-                                                    <Property name="enabled" type="boolean" value="false"/>
-                                                  </Properties>
-                                                  <Constraints>
-                                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
-                                                    </Constraint>
-                                                  </Constraints>
-                                                </Component>
-                                                <Component class="javax.swing.JTextField" name="exchangePartitionTextField">
-                                                  <Properties>
-                                                    <Property name="columns" type="int" value="11"/>
-                                                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                                      <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="Exchange" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                                    </Property>
-                                                    <Property name="enabled" type="boolean" value="false"/>
-                                                  </Properties>
-                                                  <Constraints>
-                                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="5" insetsBottom="0" insetsRight="0" anchor="17" weightX="1.0" weightY="0.0"/>
-                                                    </Constraint>
-                                                  </Constraints>
-                                                </Component>
-                                              </SubComponents>
-                                            </Container>
-                                            <Container class="javax.swing.JPanel" name="autoNumberPanel">
-                                              <Properties>
-                                                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                                                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                                                    <TitledBorder title="Automatic Numbering">
-                                                      <ResourceString PropertyName="titleX" bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.autoNumberPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                                    </TitledBorder>
-                                                  </Border>
-                                                </Property>
-                                              </Properties>
-                                              <Constraints>
-                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="0" insetsRight="0" anchor="17" weightX="1.0" weightY="0.0"/>
-                                                </Constraint>
-                                              </Constraints>
-
-                                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
-                                              <SubComponents>
-                                                <Component class="javax.swing.JLabel" name="autoNumberPatternLabel">
-                                                  <Properties>
-                                                    <Property name="horizontalAlignment" type="int" value="2"/>
-                                                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                                      <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.autoNumberPatternLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                                    </Property>
-                                                    <Property name="enabled" type="boolean" value="false"/>
-                                                  </Properties>
-                                                  <Constraints>
-                                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="5" insetsBottom="2" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
-                                                    </Constraint>
-                                                  </Constraints>
-                                                </Component>
-                                                <Component class="javax.swing.JTextField" name="autoNumberPatternTextField">
-                                                  <Properties>
-                                                    <Property name="columns" type="int" value="11"/>
-                                                    <Property name="enabled" type="boolean" value="false"/>
-                                                  </Properties>
-                                                  <Constraints>
-                                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="2" insetsBottom="2" insetsRight="0" anchor="17" weightX="1.0" weightY="0.0"/>
-                                                    </Constraint>
-                                                  </Constraints>
-                                                </Component>
-                                                <Component class="javax.swing.JLabel" name="autoNumberStartLabel">
-                                                  <Properties>
-                                                    <Property name="horizontalAlignment" type="int" value="2"/>
-                                                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                                      <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.autoNumberStartLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                                    </Property>
-                                                    <Property name="enabled" type="boolean" value="false"/>
-                                                  </Properties>
-                                                  <Constraints>
-                                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="2" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
-                                                    </Constraint>
-                                                  </Constraints>
-                                                </Component>
-                                                <Component class="javax.swing.JSpinner" name="autoNumberStartSpinner">
-                                                  <Properties>
-                                                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                                                      <SpinnerModel initial="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                                                    </Property>
-                                                    <Property name="enabled" type="boolean" value="false"/>
-                                                  </Properties>
-                                                  <Constraints>
-                                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="2" insetsBottom="2" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
-                                                    </Constraint>
-                                                  </Constraints>
-                                                </Component>
-                                                <Component class="javax.swing.JLabel" name="autoNumberIncrementLabel">
-                                                  <Properties>
-                                                    <Property name="horizontalAlignment" type="int" value="2"/>
-                                                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                                      <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.autoNumberIncrementLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                                    </Property>
-                                                    <Property name="enabled" type="boolean" value="false"/>
-                                                  </Properties>
-                                                  <Constraints>
-                                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="2" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
-                                                    </Constraint>
-                                                  </Constraints>
-                                                </Component>
-                                                <Component class="javax.swing.JSpinner" name="autoNumberIncrementSpinner">
-                                                  <Properties>
-                                                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                                                      <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                                                    </Property>
-                                                    <Property name="enabled" type="boolean" value="false"/>
-                                                  </Properties>
-                                                  <Constraints>
-                                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="2" insetsBottom="2" insetsRight="5" anchor="10" weightX="0.0" weightY="0.0"/>
-                                                    </Constraint>
-                                                  </Constraints>
-                                                </Component>
-                                              </SubComponents>
-                                            </Container>
-                                            <Container class="javax.swing.JPanel" name="exchangePartitionFileSystemPanel">
-                                              <Constraints>
-                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="3" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
-                                                </Constraint>
-                                              </Constraints>
-
-                                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
-                                              <SubComponents>
-                                                <Component class="javax.swing.JLabel" name="exchangePartitionFileSystemLabel">
-                                                  <Properties>
-                                                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                                      <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.exchangePartitionFileSystemLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                                    </Property>
-                                                    <Property name="enabled" type="boolean" value="false"/>
-                                                  </Properties>
-                                                  <Constraints>
-                                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
-                                                    </Constraint>
-                                                  </Constraints>
-                                                </Component>
-                                                <Component class="javax.swing.JComboBox" name="exchangePartitionFileSystemComboBox">
-                                                  <Properties>
-                                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                                      <StringArray count="3">
-                                                        <StringItem index="0" value="exFAT"/>
-                                                        <StringItem index="1" value="FAT32"/>
-                                                        <StringItem index="2" value="NTFS"/>
-                                                      </StringArray>
-                                                    </Property>
-                                                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                                      <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="ExchangePartitionFileSystemComboBoxToolTipText" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                                    </Property>
-                                                    <Property name="enabled" type="boolean" value="false"/>
-                                                  </Properties>
-                                                  <Constraints>
-                                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="5" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
-                                                    </Constraint>
-                                                  </Constraints>
-                                                </Component>
-                                                <Component class="javax.swing.JCheckBox" name="copyExchangeCheckBox">
-                                                  <Properties>
-                                                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                                      <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.copyExchangeCheckBox.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                                    </Property>
-                                                  </Properties>
-                                                  <Constraints>
-                                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="15" insetsBottom="0" insetsRight="10" anchor="17" weightX="1.0" weightY="0.0"/>
-                                                    </Constraint>
-                                                  </Constraints>
-                                                </Component>
-                                              </SubComponents>
-                                            </Container>
-                                          </SubComponents>
-                                        </Container>
                                       </SubComponents>
                                     </Container>
-                                    <Container class="javax.swing.JPanel" name="dataPartitionPanel">
+                                    <Container class="javax.swing.JPanel" name="installNoMediaPanel">
                                       <Constraints>
-                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                                          <JTabbedPaneConstraints tabName="Data partition">
-                                            <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.dataPartitionPanel.TabConstraints.tabTitle" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                            <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                              <Image iconType="3" name="/ch/fhnw/dlcopy/icons/green_box.png"/>
-                                            </Property>
-                                          </JTabbedPaneConstraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                                          <CardConstraints cardName="installNoMediaPanel"/>
                                         </Constraint>
                                       </Constraints>
 
                                       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
                                       <SubComponents>
-                                        <Component class="javax.swing.JLabel" name="dataPartitionFileSystemLabel">
+                                        <Component class="javax.swing.JLabel" name="installNoMediaLabel">
                                           <Properties>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.dataPartitionFileSystemLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="0" gridY="0" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JComboBox" name="dataPartitionFileSystemComboBox">
-                                          <Properties>
-                                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                              <StringArray count="3">
-                                                <StringItem index="0" value="ext2"/>
-                                                <StringItem index="1" value="ext3"/>
-                                                <StringItem index="2" value="ext4"/>
-                                              </StringArray>
-                                            </Property>
-                                          </Properties>
-                                          <Events>
-                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataPartitionFileSystemComboBoxActionPerformed"/>
-                                          </Events>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="2" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JLabel" name="dataPartitionModeLabel">
-                                          <Properties>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.dataPartitionModeLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="0" gridY="1" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JComboBox" name="dataPartitionModeComboBox">
-                                          <Events>
-                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataPartitionModeComboBoxActionPerformed"/>
-                                          </Events>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="2" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JCheckBox" name="copyDataPartitionCheckBox">
-                                          <Properties>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="Copy_Data_Partition" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="4" gridY="0" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JRadioButton" name="noPWRadio">
-                                          <Properties>
-                                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                                              <ComponentRef name="DataPartitionButtonGroup"/>
+                                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                              <Image iconType="3" name="/ch/fhnw/dlcopy/icons/messagebox_info.png"/>
                                             </Property>
                                             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.noPWRadio.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="Insert_Media" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                                             </Property>
-                                          </Properties>
-                                          <Events>
-                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noPWRadioActionPerformed"/>
-                                          </Events>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="0" gridY="3" gridWidth="2" gridHeight="1" fill="0" ipadX="9" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JLabel" name="noPWHint">
-                                          <Properties>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                              <Font name="Cantarell" size="12" style="2"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.noPWHint.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
+                                            <Property name="horizontalTextPosition" type="int" value="0"/>
+                                            <Property name="verticalTextPosition" type="int" value="3"/>
                                           </Properties>
                                           <Constraints>
                                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="0" gridY="4" gridWidth="2" gridHeight="5" fill="0" ipadX="76" ipadY="9" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JRadioButton" name="PersonalPFRadio">
-                                          <Properties>
-                                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                                              <ComponentRef name="DataPartitionButtonGroup"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.PersonalPFRadio.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="4" gridY="3" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JLabel" name="personalPFLabel">
-                                          <Properties>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.personalPFLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="4" gridY="4" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JPasswordField" name="personalPWTF">
-                                          <Properties>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.personalPWTF.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Events>
-                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="personalPWTFActionPerformed"/>
-                                          </Events>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="4" gridY="5" gridWidth="1" gridHeight="2" fill="0" ipadX="96" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JLabel" name="repeatPersonalPWLabel">
-                                          <Properties>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.repeatPersonalPWLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="4" gridY="8" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JPasswordField" name="repeatPersonalPFTF">
-                                          <Properties>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.repeatPersonalPFTF.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="4" gridY="9" gridWidth="1" gridHeight="1" fill="0" ipadX="96" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel1">
-                                          <Properties>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                              <Font name="Cantarell" size="12" style="2"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.jLabel1.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="4" gridY="10" gridWidth="2" gridHeight="1" fill="0" ipadX="79" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JRadioButton" name="MasterInitialPFRadio">
-                                          <Properties>
-                                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                                              <ComponentRef name="DataPartitionButtonGroup"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.MasterInitialPFRadio.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Events>
-                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MasterInitialPFRadioActionPerformed"/>
-                                          </Events>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="6" gridY="3" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel2">
-                                          <Properties>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.jLabel2.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="7" gridY="4" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JPasswordField" name="masterPWTF">
-                                          <Properties>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.masterPWTF.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="7" gridY="5" gridWidth="1" gridHeight="2" fill="0" ipadX="120" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JLabel" name="repeatMasterPWLabel">
-                                          <Properties>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.repeatMasterPWLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="7" gridY="8" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JPasswordField" name="repeatMasterPWTF">
-                                          <Properties>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.repeatMasterPWTF.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="7" gridY="9" gridWidth="1" gridHeight="1" fill="0" ipadX="120" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JLabel" name="repeatInitialPFLabel">
-                                          <Properties>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.repeatInitialPFLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="7" gridY="13" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JLabel" name="initialPFLabel">
-                                          <Properties>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.initialPFLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="7" gridY="11" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JPasswordField" name="intialPWTF">
-                                          <Properties>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.intialPWTF.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="7" gridY="14" gridWidth="1" gridHeight="1" fill="0" ipadX="120" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JLabel" name="masterPWHint">
-                                          <Properties>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                              <Font name="Cantarell" size="12" style="2"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.masterPWHint.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="7" gridY="10" gridWidth="1" gridHeight="1" fill="0" ipadX="162" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JPasswordField" name="repeatInitialPWTF">
-                                          <Properties>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.repeatInitialPWTF.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="7" gridY="12" gridWidth="1" gridHeight="1" fill="0" ipadX="120" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                            </Constraint>
-                                          </Constraints>
-                                        </Component>
-                                        <Component class="javax.swing.JLabel" name="initialPWHint">
-                                          <Properties>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                              <Font name="Cantarell" size="12" style="2"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                              <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.initialPWHint.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                                            </Property>
-                                          </Properties>
-                                          <Constraints>
-                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                              <GridBagConstraints gridX="7" gridY="15" gridWidth="1" gridHeight="1" fill="0" ipadX="162" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
+                                              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
                                             </Constraint>
                                           </Constraints>
                                         </Component>
@@ -1299,34 +642,694 @@
                                     </Container>
                                   </SubComponents>
                                 </Container>
-                              </SubComponents>
-                            </Container>
-                            <Container class="javax.swing.JPanel" name="installNoMediaPanel">
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                                  <CardConstraints cardName="installNoMediaPanel"/>
-                                </Constraint>
-                              </Constraints>
-
-                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
-                              <SubComponents>
-                                <Component class="javax.swing.JLabel" name="installNoMediaLabel">
+                                <Component class="javax.swing.JLabel" name="exchangeDefinitionLabel">
                                   <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
+                                      <FontInfo relative="true">
+                                        <Font bold="false" component="exchangeDefinitionLabel" property="font" relativeSize="true" size="-1"/>
+                                      </FontInfo>
+                                    </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                      <Image iconType="3" name="/ch/fhnw/dlcopy/icons/messagebox_info.png"/>
+                                      <Image iconType="3" name="/ch/fhnw/dlcopy/icons/yellow_box.png"/>
                                     </Property>
                                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                                      <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="Insert_Media" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                      <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="ExchangePartitionDefinition" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                                     </Property>
-                                    <Property name="horizontalTextPosition" type="int" value="0"/>
-                                    <Property name="verticalTextPosition" type="int" value="3"/>
                                   </Properties>
                                   <Constraints>
                                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="0" insetsRight="0" anchor="21" weightX="0.0" weightY="0.0"/>
                                     </Constraint>
                                   </Constraints>
                                 </Component>
+                                <Component class="javax.swing.JLabel" name="dataDefinitionLabel">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
+                                      <FontInfo relative="true">
+                                        <Font bold="false" component="dataDefinitionLabel" property="font" relativeSize="true" size="-1"/>
+                                      </FontInfo>
+                                    </Property>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/ch/fhnw/dlcopy/icons/green_box.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                      <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DataPartitionDefinition" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                    </Property>
+                                  </Properties>
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="0" insetsRight="0" anchor="21" weightX="0.0" weightY="0.0"/>
+                                    </Constraint>
+                                  </Constraints>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="bootDefinitionLabel">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
+                                      <FontInfo relative="true">
+                                        <Font bold="false" component="bootDefinitionLabel" property="font" relativeSize="true" size="-1"/>
+                                      </FontInfo>
+                                    </Property>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/ch/fhnw/dlcopy/icons/dark_blue_box.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                      <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="Boot_Definition" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                    </Property>
+                                  </Properties>
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="0" insetsRight="0" anchor="21" weightX="0.0" weightY="0.0"/>
+                                    </Constraint>
+                                  </Constraints>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="systemDefinitionLabel">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
+                                      <FontInfo relative="true">
+                                        <Font bold="false" component="systemDefinitionLabel" property="font" relativeSize="true" size="-1"/>
+                                      </FontInfo>
+                                    </Property>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/ch/fhnw/dlcopy/icons/blue_box.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                      <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="System_Definition" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                    </Property>
+                                  </Properties>
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="10" insetsBottom="0" insetsRight="0" anchor="21" weightX="0.0" weightY="0.0"/>
+                                    </Constraint>
+                                  </Constraints>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="exchangePartitionSizeLabel">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                      <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="Size" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                    </Property>
+                                    <Property name="enabled" type="boolean" value="false"/>
+                                  </Properties>
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="10" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                    </Constraint>
+                                  </Constraints>
+                                </Component>
+                                <Component class="javax.swing.JSlider" name="exchangePartitionSizeSlider">
+                                  <Properties>
+                                    <Property name="maximum" type="int" value="0"/>
+                                    <Property name="paintLabels" type="boolean" value="true"/>
+                                    <Property name="paintTicks" type="boolean" value="true"/>
+                                    <Property name="enabled" type="boolean" value="false"/>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="exchangePartitionSizeSliderStateChanged"/>
+                                    <EventHandler event="componentResized" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="exchangePartitionSizeSliderComponentResized"/>
+                                  </Events>
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="5" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="0.0"/>
+                                    </Constraint>
+                                  </Constraints>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="exchangePartitionSizeTextField">
+                                  <Properties>
+                                    <Property name="columns" type="int" value="7"/>
+                                    <Property name="horizontalAlignment" type="int" value="11"/>
+                                    <Property name="enabled" type="boolean" value="false"/>
+                                    <Property name="name" type="java.lang.String" value="exchangePartitionSizeTextField" noResource="true"/>
+                                  </Properties>
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="5" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                    </Constraint>
+                                  </Constraints>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="exchangePartitionSizeUnitLabel">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                      <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.exchangePartitionSizeUnitLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                    </Property>
+                                    <Property name="enabled" type="boolean" value="false"/>
+                                  </Properties>
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="5" insetsBottom="0" insetsRight="10" anchor="10" weightX="0.0" weightY="0.0"/>
+                                    </Constraint>
+                                  </Constraints>
+                                </Component>
+                              </SubComponents>
+                            </Container>
+                            <Container class="javax.swing.JTabbedPane" name="installListTabbedPane">
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                                  <JTabbedPaneConstraints tabName="Details">
+                                    <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                      <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.installListTabbedPane.TabConstraints.tabTitle" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                    </Property>
+                                  </JTabbedPaneConstraints>
+                                </Constraint>
+                              </Constraints>
+
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+                              <SubComponents>
+                                <Container class="javax.swing.JPanel" name="exchangePartitionPanel">
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                                      <JTabbedPaneConstraints tabName="Exchange partition (optional)">
+                                        <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                          <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.exchangePartitionPanel.TabConstraints.tabTitle" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                        </Property>
+                                        <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/ch/fhnw/dlcopy/icons/yellow_box.png"/>
+                                        </Property>
+                                      </JTabbedPaneConstraints>
+                                    </Constraint>
+                                  </Constraints>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                                  <SubComponents>
+                                    <Container class="javax.swing.JPanel" name="exchangePartitionBottomPanel">
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="10" insetsBottom="5" insetsRight="0" anchor="17" weightX="1.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+
+                                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                                      <SubComponents>
+                                        <Container class="javax.swing.JPanel" name="exchangePartitionLabelPanel">
+                                          <Constraints>
+                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="3" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                            </Constraint>
+                                          </Constraints>
+
+                                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                                          <SubComponents>
+                                            <Component class="javax.swing.JLabel" name="exchangePartitionLabel">
+                                              <Properties>
+                                                <Property name="horizontalAlignment" type="int" value="2"/>
+                                                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                                  <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="Label" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                                </Property>
+                                                <Property name="enabled" type="boolean" value="false"/>
+                                              </Properties>
+                                              <Constraints>
+                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
+                                                </Constraint>
+                                              </Constraints>
+                                            </Component>
+                                            <Component class="javax.swing.JTextField" name="exchangePartitionTextField">
+                                              <Properties>
+                                                <Property name="columns" type="int" value="11"/>
+                                                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                                  <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="Exchange" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                                </Property>
+                                                <Property name="enabled" type="boolean" value="false"/>
+                                              </Properties>
+                                              <Constraints>
+                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="5" insetsBottom="0" insetsRight="0" anchor="17" weightX="1.0" weightY="0.0"/>
+                                                </Constraint>
+                                              </Constraints>
+                                            </Component>
+                                          </SubComponents>
+                                        </Container>
+                                        <Container class="javax.swing.JPanel" name="autoNumberPanel">
+                                          <Properties>
+                                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                                <TitledBorder title="Automatic Numbering">
+                                                  <ResourceString PropertyName="titleX" bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.autoNumberPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                                </TitledBorder>
+                                              </Border>
+                                            </Property>
+                                          </Properties>
+                                          <Constraints>
+                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="0" insetsRight="0" anchor="17" weightX="1.0" weightY="0.0"/>
+                                            </Constraint>
+                                          </Constraints>
+
+                                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                                          <SubComponents>
+                                            <Component class="javax.swing.JLabel" name="autoNumberPatternLabel">
+                                              <Properties>
+                                                <Property name="horizontalAlignment" type="int" value="2"/>
+                                                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                                  <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.autoNumberPatternLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                                </Property>
+                                                <Property name="enabled" type="boolean" value="false"/>
+                                              </Properties>
+                                              <Constraints>
+                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="5" insetsBottom="2" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                                </Constraint>
+                                              </Constraints>
+                                            </Component>
+                                            <Component class="javax.swing.JTextField" name="autoNumberPatternTextField">
+                                              <Properties>
+                                                <Property name="columns" type="int" value="11"/>
+                                                <Property name="enabled" type="boolean" value="false"/>
+                                              </Properties>
+                                              <Constraints>
+                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="2" insetsBottom="2" insetsRight="0" anchor="17" weightX="1.0" weightY="0.0"/>
+                                                </Constraint>
+                                              </Constraints>
+                                            </Component>
+                                            <Component class="javax.swing.JLabel" name="autoNumberStartLabel">
+                                              <Properties>
+                                                <Property name="horizontalAlignment" type="int" value="2"/>
+                                                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                                  <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.autoNumberStartLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                                </Property>
+                                                <Property name="enabled" type="boolean" value="false"/>
+                                              </Properties>
+                                              <Constraints>
+                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="2" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                                </Constraint>
+                                              </Constraints>
+                                            </Component>
+                                            <Component class="javax.swing.JSpinner" name="autoNumberStartSpinner">
+                                              <Properties>
+                                                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                                                  <SpinnerModel initial="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                                                </Property>
+                                                <Property name="enabled" type="boolean" value="false"/>
+                                              </Properties>
+                                              <Constraints>
+                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="2" insetsBottom="2" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                                </Constraint>
+                                              </Constraints>
+                                            </Component>
+                                            <Component class="javax.swing.JLabel" name="autoNumberIncrementLabel">
+                                              <Properties>
+                                                <Property name="horizontalAlignment" type="int" value="2"/>
+                                                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                                  <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.autoNumberIncrementLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                                </Property>
+                                                <Property name="enabled" type="boolean" value="false"/>
+                                              </Properties>
+                                              <Constraints>
+                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="2" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                                </Constraint>
+                                              </Constraints>
+                                            </Component>
+                                            <Component class="javax.swing.JSpinner" name="autoNumberIncrementSpinner">
+                                              <Properties>
+                                                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                                                  <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                                                </Property>
+                                                <Property name="enabled" type="boolean" value="false"/>
+                                              </Properties>
+                                              <Constraints>
+                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="2" insetsBottom="2" insetsRight="5" anchor="10" weightX="0.0" weightY="0.0"/>
+                                                </Constraint>
+                                              </Constraints>
+                                            </Component>
+                                          </SubComponents>
+                                        </Container>
+                                        <Container class="javax.swing.JPanel" name="exchangePartitionFileSystemPanel">
+                                          <Constraints>
+                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="3" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                            </Constraint>
+                                          </Constraints>
+
+                                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                                          <SubComponents>
+                                            <Component class="javax.swing.JLabel" name="exchangePartitionFileSystemLabel">
+                                              <Properties>
+                                                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                                  <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.exchangePartitionFileSystemLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                                </Property>
+                                                <Property name="enabled" type="boolean" value="false"/>
+                                              </Properties>
+                                              <Constraints>
+                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
+                                                </Constraint>
+                                              </Constraints>
+                                            </Component>
+                                            <Component class="javax.swing.JComboBox" name="exchangePartitionFileSystemComboBox">
+                                              <Properties>
+                                                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                                  <StringArray count="3">
+                                                    <StringItem index="0" value="exFAT"/>
+                                                    <StringItem index="1" value="FAT32"/>
+                                                    <StringItem index="2" value="NTFS"/>
+                                                  </StringArray>
+                                                </Property>
+                                                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                                  <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="ExchangePartitionFileSystemComboBoxToolTipText" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                                </Property>
+                                                <Property name="enabled" type="boolean" value="false"/>
+                                              </Properties>
+                                              <Constraints>
+                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="5" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
+                                                </Constraint>
+                                              </Constraints>
+                                            </Component>
+                                            <Component class="javax.swing.JCheckBox" name="copyExchangeCheckBox">
+                                              <Properties>
+                                                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                                  <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.copyExchangeCheckBox.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                                </Property>
+                                              </Properties>
+                                              <Constraints>
+                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="15" insetsBottom="0" insetsRight="10" anchor="17" weightX="1.0" weightY="0.0"/>
+                                                </Constraint>
+                                              </Constraints>
+                                            </Component>
+                                          </SubComponents>
+                                        </Container>
+                                      </SubComponents>
+                                    </Container>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JPanel" name="dataPartitionPanel">
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                                      <JTabbedPaneConstraints tabName="Data partition">
+                                        <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                          <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.dataPartitionPanel.TabConstraints.tabTitle" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                        </Property>
+                                        <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/ch/fhnw/dlcopy/icons/green_box.png"/>
+                                        </Property>
+                                      </JTabbedPaneConstraints>
+                                    </Constraint>
+                                  </Constraints>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JLabel" name="dataPartitionFileSystemLabel">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                          <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.dataPartitionFileSystemLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JComboBox" name="dataPartitionFileSystemComboBox">
+                                      <Properties>
+                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                          <StringArray count="3">
+                                            <StringItem index="0" value="ext2"/>
+                                            <StringItem index="1" value="ext3"/>
+                                            <StringItem index="2" value="ext4"/>
+                                          </StringArray>
+                                        </Property>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataPartitionFileSystemComboBoxActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="dataPartitionModeLabel">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                          <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.dataPartitionModeLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JComboBox" name="dataPartitionModeComboBox">
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataPartitionModeComboBoxActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JCheckBox" name="copyDataPartitionCheckBox">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                          <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="Copy_Data_Partition" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JRadioButton" name="noPWRadio">
+                                      <Properties>
+                                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                                          <ComponentRef name="DataPartitionButtonGroup"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                          <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.noPWRadio.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                        </Property>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noPWRadioActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JRadioButton" name="personalPFRadio">
+                                      <Properties>
+                                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                                          <ComponentRef name="DataPartitionButtonGroup"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                          <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.personalPFRadio.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JRadioButton" name="masterInitialPFRadio">
+                                      <Properties>
+                                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                                          <ComponentRef name="DataPartitionButtonGroup"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                          <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.masterInitialPFRadio.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                        </Property>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="masterInitialPFRadioActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="1.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="noPWHint">
+                                      <Properties>
+                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                          <Font name="Cantarell" size="12" style="2"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                          <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.noPWHint.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="9" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="personalPFLabel">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                          <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.personalPFLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="masterPFLabel">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                          <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.masterPFLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JPasswordField" name="personalPWTF">
+                                      <Properties>
+                                        <Property name="columns" type="int" value="8"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="personalPWTFActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JPasswordField" name="masterPWTF">
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="repeatPersonalPWLabel">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                          <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.repeatPersonalPWLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="repeatMasterPWLabel">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                          <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.repeatMasterPWLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JPasswordField" name="repeatPersonalPFTF">
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JPasswordField" name="repeatMasterPWTF">
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="personalPWHint">
+                                      <Properties>
+                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                          <Font name="Cantarell" size="12" style="2"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                          <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.personalPWHint.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="masterPWHint">
+                                      <Properties>
+                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                          <Font name="Cantarell" size="12" style="2"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                          <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.masterPWHint.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="initialPFLabel">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                          <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.initialPFLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="4" gridY="-1" gridWidth="0" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JPasswordField" name="intialPWTF">
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="repeatInitialPFLabel">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                          <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.repeatInitialPFLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JPasswordField" name="repeatInitialPWTF">
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="initialPWHint">
+                                      <Properties>
+                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                          <Font name="Cantarell" size="12" style="2"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                                          <ResourceString bundle="ch/fhnw/dlcopy/Strings.properties" key="DLCopySwingGUI.initialPWHint.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
                               </SubComponents>
                             </Container>
                           </SubComponents>

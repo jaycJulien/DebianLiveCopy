@@ -37,6 +37,8 @@ import ch.fhnw.util.StorageDevice;
 import java.applet.Applet;
 import java.applet.AudioClip;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.geom.Rectangle2D;
 import java.beans.PropertyChangeEvent;
@@ -65,6 +67,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.text.AbstractDocument;
 import javax.swing.text.Document;
 import org.freedesktop.dbus.exceptions.DBusException;
+
 
 /**
  * Installs Debian Live to a USB flash drive
@@ -380,10 +383,63 @@ public class DLCopySwingGUI extends JFrame
                 preferences.get(DATA_PARTITION_FILESYSTEM, "ext4"));
         
         //select the no passphrase method by default 
-        if(selectedMethod.isEmpty()){
-           noPWRadio.setSelected(true);
+        if (selectedMethod.isEmpty()) {
+            noPWRadio.setSelected(true);
+            personalPWTF.setEnabled(false);
+            repeatPersonalPFTF.setEnabled(false);
+            masterPWTF.setEnabled(false);
+            repeatMasterPWTF.setEnabled(false);
+            intialPWTF.setEnabled(false);
+            repeatInitialPWTF.setEnabled(false);
         }
-        
+
+        //deactivate the textFields not related to the selected method 
+        personalPFRadio.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (personalPFRadio.isSelected()) {
+                    personalPWTF.setEnabled(true);
+                    repeatPersonalPFTF.setEnabled(true);
+                    masterPWTF.setEnabled(false);
+                    repeatMasterPWTF.setEnabled(false);
+                    intialPWTF.setEnabled(false);
+                    repeatInitialPWTF.setEnabled(false);
+                }
+
+            }
+        });
+
+        noPWRadio.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (noPWRadio.isSelected()) {
+                    personalPWTF.setEnabled(false);
+                    repeatPersonalPFTF.setEnabled(false);
+                    masterPWTF.setEnabled(false);
+                    repeatMasterPWTF.setEnabled(false);
+                    intialPWTF.setEnabled(false);
+                    repeatInitialPWTF.setEnabled(false);
+                }
+
+            }
+        });
+
+        masterInitialPFRadio.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (masterInitialPFRadio.isSelected()) {
+                    personalPWTF.setEnabled(false);
+                    repeatPersonalPFTF.setEnabled(false);
+                    masterPWTF.setEnabled(true);
+                    repeatMasterPWTF.setEnabled(true);
+                    intialPWTF.setEnabled(true);
+                    repeatInitialPWTF.setEnabled(true);
+                }
+
+            }
+        });
+      
+       
         if (commandLineCopyDataPartition == null) {
             copyDataPartitionCheckBox.setSelected(
                     preferences.getBoolean(COPY_DATA_PARTITION, false));
@@ -1338,15 +1394,17 @@ public class DLCopySwingGUI extends JFrame
         isoSourceFileChooserButton = new javax.swing.JButton();
         installTargetCardPanel = new javax.swing.JPanel();
         installTargetPanel = new javax.swing.JPanel();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
         installSelectionHeaderLabel = new javax.swing.JLabel();
         installShowHarddisksCheckBox = new javax.swing.JCheckBox();
         installSelectionCardPanel = new javax.swing.JPanel();
         installListPanel = new javax.swing.JPanel();
-        installListTabbedPane = new javax.swing.JTabbedPane();
-        exchangePartitionPanel = new javax.swing.JPanel();
         installSelectionCountLabel = new javax.swing.JLabel();
         installStorageDeviceListScrollPane = new javax.swing.JScrollPane();
         installStorageDeviceList = new javax.swing.JList();
+        installNoMediaPanel = new javax.swing.JPanel();
+        installNoMediaLabel = new javax.swing.JLabel();
         exchangeDefinitionLabel = new javax.swing.JLabel();
         dataDefinitionLabel = new javax.swing.JLabel();
         bootDefinitionLabel = new javax.swing.JLabel();
@@ -1355,6 +1413,8 @@ public class DLCopySwingGUI extends JFrame
         exchangePartitionSizeSlider = new javax.swing.JSlider();
         exchangePartitionSizeTextField = new javax.swing.JTextField();
         exchangePartitionSizeUnitLabel = new javax.swing.JLabel();
+        installListTabbedPane = new javax.swing.JTabbedPane();
+        exchangePartitionPanel = new javax.swing.JPanel();
         exchangePartitionBottomPanel = new javax.swing.JPanel();
         exchangePartitionLabelPanel = new javax.swing.JPanel();
         exchangePartitionLabel = new javax.swing.JLabel();
@@ -1377,26 +1437,24 @@ public class DLCopySwingGUI extends JFrame
         dataPartitionModeComboBox = new javax.swing.JComboBox();
         copyDataPartitionCheckBox = new javax.swing.JCheckBox();
         noPWRadio = new javax.swing.JRadioButton();
+        personalPFRadio = new javax.swing.JRadioButton();
+        masterInitialPFRadio = new javax.swing.JRadioButton();
         noPWHint = new javax.swing.JLabel();
-        PersonalPFRadio = new javax.swing.JRadioButton();
         personalPFLabel = new javax.swing.JLabel();
+        masterPFLabel = new javax.swing.JLabel();
         personalPWTF = new javax.swing.JPasswordField();
-        repeatPersonalPWLabel = new javax.swing.JLabel();
-        repeatPersonalPFTF = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
-        MasterInitialPFRadio = new javax.swing.JRadioButton();
-        jLabel2 = new javax.swing.JLabel();
         masterPWTF = new javax.swing.JPasswordField();
+        repeatPersonalPWLabel = new javax.swing.JLabel();
         repeatMasterPWLabel = new javax.swing.JLabel();
+        repeatPersonalPFTF = new javax.swing.JPasswordField();
         repeatMasterPWTF = new javax.swing.JPasswordField();
-        repeatInitialPFLabel = new javax.swing.JLabel();
+        personalPWHint = new javax.swing.JLabel();
+        masterPWHint = new javax.swing.JLabel();
         initialPFLabel = new javax.swing.JLabel();
         intialPWTF = new javax.swing.JPasswordField();
-        masterPWHint = new javax.swing.JLabel();
+        repeatInitialPFLabel = new javax.swing.JLabel();
         repeatInitialPWTF = new javax.swing.JPasswordField();
         initialPWHint = new javax.swing.JLabel();
-        installNoMediaPanel = new javax.swing.JPanel();
-        installNoMediaLabel = new javax.swing.JLabel();
         installNoSourcePanel = new javax.swing.JPanel();
         installNoSouceLabel = new javax.swing.JLabel();
         installTabbedPane = new javax.swing.JTabbedPane();
@@ -1845,13 +1903,15 @@ public class DLCopySwingGUI extends JFrame
         installTargetPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(bundle.getString("DLCopySwingGUI.installTargetPanel.border.title"))); // NOI18N
         installTargetPanel.setLayout(new java.awt.GridBagLayout());
 
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
         installSelectionHeaderLabel.setFont(installSelectionHeaderLabel.getFont().deriveFont(installSelectionHeaderLabel.getFont().getStyle() & ~java.awt.Font.BOLD));
         installSelectionHeaderLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         installSelectionHeaderLabel.setText(bundle.getString("Select_Install_Target_Storage_Media")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        installTargetPanel.add(installSelectionHeaderLabel, gridBagConstraints);
+        jPanel1.add(installSelectionHeaderLabel, gridBagConstraints);
 
         installShowHarddisksCheckBox.setFont(installShowHarddisksCheckBox.getFont().deriveFont(installShowHarddisksCheckBox.getFont().getStyle() & ~java.awt.Font.BOLD, installShowHarddisksCheckBox.getFont().getSize()-1));
         installShowHarddisksCheckBox.setText(bundle.getString("DLCopySwingGUI.installShowHarddisksCheckBox.text")); // NOI18N
@@ -1862,18 +1922,16 @@ public class DLCopySwingGUI extends JFrame
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        installTargetPanel.add(installShowHarddisksCheckBox, gridBagConstraints);
+        jPanel1.add(installShowHarddisksCheckBox, gridBagConstraints);
 
         installSelectionCardPanel.setLayout(new java.awt.CardLayout());
 
         installListPanel.setLayout(new java.awt.GridBagLayout());
 
-        exchangePartitionPanel.setLayout(new java.awt.GridBagLayout());
-
         installSelectionCountLabel.setText(bundle.getString("Selection_Count")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        exchangePartitionPanel.add(installSelectionCountLabel, gridBagConstraints);
+        installListPanel.add(installSelectionCountLabel, gridBagConstraints);
 
         installStorageDeviceList.setName("installStorageDeviceList"); // NOI18N
         installStorageDeviceList.setVisibleRowCount(3);
@@ -1889,7 +1947,27 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        exchangePartitionPanel.add(installStorageDeviceListScrollPane, gridBagConstraints);
+        installListPanel.add(installStorageDeviceListScrollPane, gridBagConstraints);
+
+        installSelectionCardPanel.add(installListPanel, "installListPanel");
+
+        installNoMediaPanel.setLayout(new java.awt.GridBagLayout());
+
+        installNoMediaLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ch/fhnw/dlcopy/icons/messagebox_info.png"))); // NOI18N
+        installNoMediaLabel.setText(bundle.getString("Insert_Media")); // NOI18N
+        installNoMediaLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        installNoMediaLabel.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        installNoMediaPanel.add(installNoMediaLabel, new java.awt.GridBagConstraints());
+
+        installSelectionCardPanel.add(installNoMediaPanel, "installNoMediaPanel");
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jPanel1.add(installSelectionCardPanel, gridBagConstraints);
 
         exchangeDefinitionLabel.setFont(exchangeDefinitionLabel.getFont().deriveFont(exchangeDefinitionLabel.getFont().getStyle() & ~java.awt.Font.BOLD, exchangeDefinitionLabel.getFont().getSize()-1));
         exchangeDefinitionLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ch/fhnw/dlcopy/icons/yellow_box.png"))); // NOI18N
@@ -1898,7 +1976,7 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 0);
-        exchangePartitionPanel.add(exchangeDefinitionLabel, gridBagConstraints);
+        jPanel1.add(exchangeDefinitionLabel, gridBagConstraints);
 
         dataDefinitionLabel.setFont(dataDefinitionLabel.getFont().deriveFont(dataDefinitionLabel.getFont().getStyle() & ~java.awt.Font.BOLD, dataDefinitionLabel.getFont().getSize()-1));
         dataDefinitionLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ch/fhnw/dlcopy/icons/green_box.png"))); // NOI18N
@@ -1907,7 +1985,7 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 0);
-        exchangePartitionPanel.add(dataDefinitionLabel, gridBagConstraints);
+        jPanel1.add(dataDefinitionLabel, gridBagConstraints);
 
         bootDefinitionLabel.setFont(bootDefinitionLabel.getFont().deriveFont(bootDefinitionLabel.getFont().getStyle() & ~java.awt.Font.BOLD, bootDefinitionLabel.getFont().getSize()-1));
         bootDefinitionLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ch/fhnw/dlcopy/icons/dark_blue_box.png"))); // NOI18N
@@ -1915,7 +1993,7 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 0);
-        exchangePartitionPanel.add(bootDefinitionLabel, gridBagConstraints);
+        jPanel1.add(bootDefinitionLabel, gridBagConstraints);
 
         systemDefinitionLabel.setFont(systemDefinitionLabel.getFont().deriveFont(systemDefinitionLabel.getFont().getStyle() & ~java.awt.Font.BOLD, systemDefinitionLabel.getFont().getSize()-1));
         systemDefinitionLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ch/fhnw/dlcopy/icons/blue_box.png"))); // NOI18N
@@ -1924,14 +2002,14 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 10, 0, 0);
-        exchangePartitionPanel.add(systemDefinitionLabel, gridBagConstraints);
+        jPanel1.add(systemDefinitionLabel, gridBagConstraints);
 
         exchangePartitionSizeLabel.setText(bundle.getString("Size")); // NOI18N
         exchangePartitionSizeLabel.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
-        exchangePartitionPanel.add(exchangePartitionSizeLabel, gridBagConstraints);
+        jPanel1.add(exchangePartitionSizeLabel, gridBagConstraints);
 
         exchangePartitionSizeSlider.setMaximum(0);
         exchangePartitionSizeSlider.setPaintLabels(true);
@@ -1951,7 +2029,7 @@ public class DLCopySwingGUI extends JFrame
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
-        exchangePartitionPanel.add(exchangePartitionSizeSlider, gridBagConstraints);
+        jPanel1.add(exchangePartitionSizeSlider, gridBagConstraints);
 
         exchangePartitionSizeTextField.setColumns(7);
         exchangePartitionSizeTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
@@ -1959,14 +2037,18 @@ public class DLCopySwingGUI extends JFrame
         exchangePartitionSizeTextField.setName("exchangePartitionSizeTextField"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
-        exchangePartitionPanel.add(exchangePartitionSizeTextField, gridBagConstraints);
+        jPanel1.add(exchangePartitionSizeTextField, gridBagConstraints);
 
         exchangePartitionSizeUnitLabel.setText(bundle.getString("DLCopySwingGUI.exchangePartitionSizeUnitLabel.text")); // NOI18N
         exchangePartitionSizeUnitLabel.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 10);
-        exchangePartitionPanel.add(exchangePartitionSizeUnitLabel, gridBagConstraints);
+        jPanel1.add(exchangePartitionSizeUnitLabel, gridBagConstraints);
+
+        jTabbedPane2.addTab(bundle.getString("DLCopySwingGUI.jPanel1.TabConstraints.tabTitle"), jPanel1); // NOI18N
+
+        exchangePartitionPanel.setLayout(new java.awt.GridBagLayout());
 
         exchangePartitionBottomPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -2094,12 +2176,7 @@ public class DLCopySwingGUI extends JFrame
         dataPartitionPanel.setLayout(new java.awt.GridBagLayout());
 
         dataPartitionFileSystemLabel.setText(bundle.getString("DLCopySwingGUI.dataPartitionFileSystemLabel.text")); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        dataPartitionPanel.add(dataPartitionFileSystemLabel, gridBagConstraints);
+        dataPartitionPanel.add(dataPartitionFileSystemLabel, new java.awt.GridBagConstraints());
 
         dataPartitionFileSystemComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ext2", "ext3", "ext4" }));
         dataPartitionFileSystemComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -2108,18 +2185,12 @@ public class DLCopySwingGUI extends JFrame
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         dataPartitionPanel.add(dataPartitionFileSystemComboBox, gridBagConstraints);
 
         dataPartitionModeLabel.setText(bundle.getString("DLCopySwingGUI.dataPartitionModeLabel.text")); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        dataPartitionPanel.add(dataPartitionModeLabel, gridBagConstraints);
+        dataPartitionPanel.add(dataPartitionModeLabel, new java.awt.GridBagConstraints());
 
         dataPartitionModeComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2127,17 +2198,14 @@ public class DLCopySwingGUI extends JFrame
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         dataPartitionPanel.add(dataPartitionModeComboBox, gridBagConstraints);
 
         copyDataPartitionCheckBox.setText(bundle.getString("Copy_Data_Partition")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         dataPartitionPanel.add(copyDataPartitionCheckBox, gridBagConstraints);
 
         DataPartitionButtonGroup.add(noPWRadio);
@@ -2147,201 +2215,107 @@ public class DLCopySwingGUI extends JFrame
                 noPWRadioActionPerformed(evt);
             }
         });
+        dataPartitionPanel.add(noPWRadio, new java.awt.GridBagConstraints());
+
+        DataPartitionButtonGroup.add(personalPFRadio);
+        personalPFRadio.setText(bundle.getString("DLCopySwingGUI.personalPFRadio.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        dataPartitionPanel.add(noPWRadio, gridBagConstraints);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        dataPartitionPanel.add(personalPFRadio, gridBagConstraints);
+
+        DataPartitionButtonGroup.add(masterInitialPFRadio);
+        masterInitialPFRadio.setText(bundle.getString("DLCopySwingGUI.masterInitialPFRadio.text")); // NOI18N
+        masterInitialPFRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                masterInitialPFRadioActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        dataPartitionPanel.add(masterInitialPFRadio, gridBagConstraints);
 
         noPWHint.setFont(new java.awt.Font("Cantarell", 2, 12)); // NOI18N
         noPWHint.setText(bundle.getString("DLCopySwingGUI.noPWHint.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 5;
-        gridBagConstraints.ipadx = 76;
         gridBagConstraints.ipady = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         dataPartitionPanel.add(noPWHint, gridBagConstraints);
 
-        DataPartitionButtonGroup.add(PersonalPFRadio);
-        PersonalPFRadio.setText(bundle.getString("DLCopySwingGUI.PersonalPFRadio.text")); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        dataPartitionPanel.add(PersonalPFRadio, gridBagConstraints);
-
         personalPFLabel.setText(bundle.getString("DLCopySwingGUI.personalPFLabel.text")); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        dataPartitionPanel.add(personalPFLabel, gridBagConstraints);
+        dataPartitionPanel.add(personalPFLabel, new java.awt.GridBagConstraints());
 
-        personalPWTF.setText(bundle.getString("DLCopySwingGUI.personalPWTF.text")); // NOI18N
+        masterPFLabel.setText(bundle.getString("DLCopySwingGUI.masterPFLabel.text")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        dataPartitionPanel.add(masterPFLabel, gridBagConstraints);
+
+        personalPWTF.setColumns(8);
         personalPWTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 personalPWTFActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 96;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         dataPartitionPanel.add(personalPWTF, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        dataPartitionPanel.add(masterPWTF, gridBagConstraints);
 
         repeatPersonalPWLabel.setText(bundle.getString("DLCopySwingGUI.repeatPersonalPWLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridx = 1;
         dataPartitionPanel.add(repeatPersonalPWLabel, gridBagConstraints);
-
-        repeatPersonalPFTF.setText(bundle.getString("DLCopySwingGUI.repeatPersonalPFTF.text")); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.ipadx = 96;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        dataPartitionPanel.add(repeatPersonalPFTF, gridBagConstraints);
-
-        jLabel1.setFont(new java.awt.Font("Cantarell", 2, 12)); // NOI18N
-        jLabel1.setText(bundle.getString("DLCopySwingGUI.jLabel1.text")); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 79;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        dataPartitionPanel.add(jLabel1, gridBagConstraints);
-
-        DataPartitionButtonGroup.add(MasterInitialPFRadio);
-        MasterInitialPFRadio.setText(bundle.getString("DLCopySwingGUI.MasterInitialPFRadio.text")); // NOI18N
-        MasterInitialPFRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MasterInitialPFRadioActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        dataPartitionPanel.add(MasterInitialPFRadio, gridBagConstraints);
-
-        jLabel2.setText(bundle.getString("DLCopySwingGUI.jLabel2.text")); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        dataPartitionPanel.add(jLabel2, gridBagConstraints);
-
-        masterPWTF.setText(bundle.getString("DLCopySwingGUI.masterPWTF.text")); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 120;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        dataPartitionPanel.add(masterPWTF, gridBagConstraints);
 
         repeatMasterPWLabel.setText(bundle.getString("DLCopySwingGUI.repeatMasterPWLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         dataPartitionPanel.add(repeatMasterPWLabel, gridBagConstraints);
-
-        repeatMasterPWTF.setText(bundle.getString("DLCopySwingGUI.repeatMasterPWTF.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.ipadx = 120;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridx = 1;
+        dataPartitionPanel.add(repeatPersonalPFTF, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         dataPartitionPanel.add(repeatMasterPWTF, gridBagConstraints);
 
-        repeatInitialPFLabel.setText(bundle.getString("DLCopySwingGUI.repeatInitialPFLabel.text")); // NOI18N
+        personalPWHint.setFont(new java.awt.Font("Cantarell", 2, 12)); // NOI18N
+        personalPWHint.setText(bundle.getString("DLCopySwingGUI.personalPWHint.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        dataPartitionPanel.add(repeatInitialPFLabel, gridBagConstraints);
-
-        initialPFLabel.setText(bundle.getString("DLCopySwingGUI.initialPFLabel.text")); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        dataPartitionPanel.add(initialPFLabel, gridBagConstraints);
-
-        intialPWTF.setText(bundle.getString("DLCopySwingGUI.intialPWTF.text")); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.ipadx = 120;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        dataPartitionPanel.add(intialPWTF, gridBagConstraints);
+        gridBagConstraints.gridx = 1;
+        dataPartitionPanel.add(personalPWHint, gridBagConstraints);
 
         masterPWHint.setFont(new java.awt.Font("Cantarell", 2, 12)); // NOI18N
         masterPWHint.setText(bundle.getString("DLCopySwingGUI.masterPWHint.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.ipadx = 162;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         dataPartitionPanel.add(masterPWHint, gridBagConstraints);
 
-        repeatInitialPWTF.setText(bundle.getString("DLCopySwingGUI.repeatInitialPWTF.text")); // NOI18N
+        initialPFLabel.setText(bundle.getString("DLCopySwingGUI.initialPFLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.ipadx = 120;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        dataPartitionPanel.add(repeatInitialPWTF, gridBagConstraints);
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        dataPartitionPanel.add(initialPFLabel, gridBagConstraints);
+        dataPartitionPanel.add(intialPWTF, new java.awt.GridBagConstraints());
+
+        repeatInitialPFLabel.setText(bundle.getString("DLCopySwingGUI.repeatInitialPFLabel.text")); // NOI18N
+        dataPartitionPanel.add(repeatInitialPFLabel, new java.awt.GridBagConstraints());
+        dataPartitionPanel.add(repeatInitialPWTF, new java.awt.GridBagConstraints());
 
         initialPWHint.setFont(new java.awt.Font("Cantarell", 2, 12)); // NOI18N
         initialPWHint.setText(bundle.getString("DLCopySwingGUI.initialPWHint.text")); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 15;
-        gridBagConstraints.ipadx = 162;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        dataPartitionPanel.add(initialPWHint, gridBagConstraints);
+        dataPartitionPanel.add(initialPWHint, new java.awt.GridBagConstraints());
 
         installListTabbedPane.addTab(bundle.getString("DLCopySwingGUI.dataPartitionPanel.TabConstraints.tabTitle"), new javax.swing.ImageIcon(getClass().getResource("/ch/fhnw/dlcopy/icons/green_box.png")), dataPartitionPanel); // NOI18N
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 0, 0, 0);
-        installListPanel.add(installListTabbedPane, gridBagConstraints);
-
-        installSelectionCardPanel.add(installListPanel, "installListPanel");
-
-        installNoMediaPanel.setLayout(new java.awt.GridBagLayout());
-
-        installNoMediaLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ch/fhnw/dlcopy/icons/messagebox_info.png"))); // NOI18N
-        installNoMediaLabel.setText(bundle.getString("Insert_Media")); // NOI18N
-        installNoMediaLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        installNoMediaLabel.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        installNoMediaPanel.add(installNoMediaLabel, new java.awt.GridBagConstraints());
-
-        installSelectionCardPanel.add(installNoMediaPanel, "installNoMediaPanel");
+        jTabbedPane2.addTab(bundle.getString("DLCopySwingGUI.installListTabbedPane.TabConstraints.tabTitle"), installListTabbedPane); // NOI18N
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        installTargetPanel.add(installSelectionCardPanel, gridBagConstraints);
+        installTargetPanel.add(jTabbedPane2, gridBagConstraints);
 
         installTargetCardPanel.add(installTargetPanel, "installTargetPanel");
 
@@ -4135,9 +4109,9 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
         // TODO add your handling code here:
     }//GEN-LAST:event_noPWRadioActionPerformed
 
-    private void MasterInitialPFRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MasterInitialPFRadioActionPerformed
+    private void masterInitialPFRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masterInitialPFRadioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MasterInitialPFRadioActionPerformed
+    }//GEN-LAST:event_masterInitialPFRadioActionPerformed
 
     private void dataPartitionModeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataPartitionModeComboBoxActionPerformed
         // TODO add your handling code here:
@@ -5550,7 +5524,7 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
         if (noPWRadio.isSelected() == true) {
             setSelectedMethod(UNLOCK_LOCK_METHOD.NO_PASSWORD.toString());
 
-        } else if (PersonalPFRadio.isSelected() == true) {
+        } else if (personalPFRadio.isSelected() == true) {
             if (personalPWTF.getPassword() == null
                     || repeatPersonalPFTF.getPassword() == null) {
             } else {
@@ -5564,7 +5538,7 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
                     showErrorMessage("Password does not match");
                 }
             }
-        } else if (MasterInitialPFRadio.isSelected() == true) {
+        } else if (masterInitialPFRadio.isSelected() == true) {
             if (masterPWTF.getPassword() == null
                     || repeatMasterPWTF.getPassword() == null
                    || intialPWTF.getPassword() == null
@@ -5644,8 +5618,6 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup DataPartitionButtonGroup;
-    private javax.swing.JRadioButton MasterInitialPFRadio;
-    private javax.swing.JRadioButton PersonalPFRadio;
     private javax.swing.JLabel autoNumberIncrementLabel;
     private javax.swing.JSpinner autoNumberIncrementSpinner;
     private javax.swing.JPanel autoNumberPanel;
@@ -5752,19 +5724,21 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
     private javax.swing.JButton isoSourceFileChooserButton;
     private javax.swing.JRadioButton isoSourceRadioButton;
     private javax.swing.JTextField isoSourceTextField;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JCheckBox keepFirewallSettingsCheckBox;
     private javax.swing.JCheckBox keepNetworkSettingsCheckBox;
     private javax.swing.JCheckBox keepPrinterSettingsCheckBox;
+    private javax.swing.JRadioButton masterInitialPFRadio;
+    private javax.swing.JLabel masterPFLabel;
     private javax.swing.JLabel masterPWHint;
     private javax.swing.JPasswordField masterPWTF;
     private javax.swing.JButton nextButton;
@@ -5774,6 +5748,8 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
     private javax.swing.JPanel northWestPanel;
     private javax.swing.JRadioButton originalExchangeRadioButton;
     private javax.swing.JLabel personalPFLabel;
+    private javax.swing.JRadioButton personalPFRadio;
+    private javax.swing.JLabel personalPWHint;
     private javax.swing.JPasswordField personalPWTF;
     private javax.swing.JPanel prevNextButtonPanel;
     private javax.swing.JButton previousButton;
