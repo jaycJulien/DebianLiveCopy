@@ -60,13 +60,11 @@ public class DLCopy {
      * the size of the efi partition (given in MiB)
      */
     public static final long EFI_PARTITION_SIZE = 10;
-    
+
     /**
      * the label to use for the system partition
      */
     public static String systemPartitionLabel;
-    
-    
 
     private static final Logger LOGGER
             = Logger.getLogger(DLCopy.class.getName());
@@ -75,13 +73,12 @@ public class DLCopy {
     private static final long MINIMUM_PARTITION_SIZE = 200 * MEGA;
     private static final long MINIMUM_FREE_MEMORY = 300 * MEGA;
     private static DBusConnection dbusSystemConnection;
-    
-     private static  String selectedMethod;
-     private  static String personalPassword;
-     private  static String masterPassword;
-     private static  String initialPassword;
-     public static String globallyKnownPassword = "DebianLiveCopy";
-     
+
+    private static String selectedMethod;
+    private static String personalPassword;
+    private static String masterPassword;
+    private static String initialPassword;
+    public static String globallyKnownPassword = "DebianLiveCopy";
 
     static {
         try {
@@ -97,14 +94,14 @@ public class DLCopy {
      * @param args the command line arguments
      */
     public static void main(final String args[]) {
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
                 new DLCopySwingGUI(args).setVisible(true);
-            System.out.println("Personal Password here "+ personalPassword);
+                System.out.println("Personal Password here " + personalPassword);
             }
-            
+
         });
     }
 
@@ -220,13 +217,13 @@ public class DLCopy {
             String exchangePartitionLabel,
             InstallerOrUpgrader installerOrUpgrader, DLCopyGUI dlCopyGUI)
             throws InterruptedException, IOException, DBusException {
-        
-            selectedMethod = installerOrUpgrader.getSelectedMethod();
-            masterPassword = installerOrUpgrader.getMasterPassword();
-            personalPassword = installerOrUpgrader.getPersonalPassword();
-            initialPassword = installerOrUpgrader.getInitialPassword();
-            
-                // determine size and state
+
+        selectedMethod = installerOrUpgrader.getSelectedMethod();
+        masterPassword = installerOrUpgrader.getMasterPassword();
+        personalPassword = installerOrUpgrader.getPersonalPassword();
+        initialPassword = installerOrUpgrader.getInitialPassword();
+
+        // determine size and state
         String device = "/dev/" + storageDevice.getDevice();
         long storageDeviceSize = storageDevice.getSize();
         PartitionSizes partitionSizes
@@ -410,9 +407,8 @@ public class DLCopy {
             throw new IOException(errorMessage);
         }
         source.unmountTmpPartitions();
-        
+
         //Here we have to do our magic!!
-        
     }
 
     /**
@@ -519,7 +515,6 @@ public class DLCopy {
             return false;
         }
     }
-      
 
     /**
      * writes the currently used version of persistence.conf into a given path
@@ -547,7 +542,6 @@ public class DLCopy {
      * @throws DBusException if a DBusException occurs
      * @throws IOException if an IOException occurs
      */
-    
     public static void formatPersistencePartition(
             String device, String fileSystem, DLCopyGUI dlCopyGUI)
             throws DBusException, IOException {
@@ -556,48 +550,60 @@ public class DLCopy {
         if (isMounted(device)) {
             umount(device, dlCopyGUI);
         }
+
+        /**
+         * This passphrase is used to hold the passphrase to store in Keyslot 0,
+         * namely initial, globally known and the personal passphrases. of
+         * course only one of them and not all at the same time.
+         */
         String passphrase = "";
-        
+
+        /**
+         * The switch case which decides what method to use to lock and unlock
+         * the data partition.
+         */
         switch (selectedMethod) {
             case "NO_PASSWORD":
-                String noPasswordLuksScript = createLuksFormatScript(globallyKnownPassword,device.substring(5));
+                String noPasswordLuksScript
+                        = createLuksFormatScript(globallyKnownPassword, device.substring(5));
                 PROCESS_EXECUTOR.executeScript(noPasswordLuksScript);
-                dlCopyGUI.showErrorMessage("IT ENTERED no password" + " " + noPasswordLuksScript);
                 passphrase = globallyKnownPassword;
                 break;
 
             case "PERSONAL_PASSWORD":
-                String personalMethodLuksScript = createLuksFormatScript(personalPassword,device.substring(5));
+                String personalMethodLuksScript
+                        = createLuksFormatScript(personalPassword, device.substring(5));
                 PROCESS_EXECUTOR.executeScript(personalMethodLuksScript);
-                dlCopyGUI.showErrorMessage("IT ENTERED in PERSONAL "+personalPassword + "  "+personalMethodLuksScript);
                 passphrase = personalPassword;
                 break;
 
             case "MASTER_INITIAL_PASSWORD":
-                String initialMethodLuksScript = createLuksFormatScript(initialPassword,device.substring(5));
-                
-                String addMasterKeyScript = createLuksAddKeyScript(initialPassword, masterPassword, device.substring(5), 1);
-                
+                String initialMethodLuksScript
+                        = createLuksFormatScript(initialPassword, device.substring(5));
+
+                String addMasterKeyScript
+                        = createLuksAddKeyScript(initialPassword, masterPassword, device.substring(5), 1);
+
                 PROCESS_EXECUTOR.executeScript(initialMethodLuksScript);
                 PROCESS_EXECUTOR.executeScript(addMasterKeyScript);
-                
-                dlCopyGUI.showErrorMessage("IT ENTERED in MasterMethod" + "intial is "+initialPassword+ " the master is "+masterPassword + "the addKeyScript is "+addMasterKeyScript);
                 passphrase = initialPassword;
                 break;
-                
-                default:
-                   dlCopyGUI.showErrorMessage("The USB stick can not be locked");
-                
+
+            default:
+                dlCopyGUI.showErrorMessage("The USB stick can not be locked");
+
                 break;
-     
+
         }
-        
+
+        /**
+         * The mapper name of the luks formated partition.
+         */
         String mapperName = "backup2";
-        String mappingScript = createMapper(device.substring(5), mapperName, passphrase);
+        String mappingScript = createMapper(device.substring(5), mapperName,
+                passphrase);
         PROCESS_EXECUTOR.executeScript(mappingScript);
-        dlCopyGUI.showErrorMessage("String Error message"+mappingScript);
-        
-        
+
         // If we want to create a partition at the exact same location of
         // another type of partition mkfs becomes interactive.
         // For instance if we first install with an exchange partition and later
@@ -608,18 +614,10 @@ public class DLCopy {
         // ------------
         // To make a long story short, this is the reason we have to use the
         // force flag "-F" here.
-        
-        
-        String createFileSystem = "#!/bin/sh"+ '\n'
-                +"/sbin/mkfs."+fileSystem+" -F -L "+Partition.PERSISTENCE_LABEL+" /dev/mapper/"+mapperName;
-              int exitValue =  PROCESS_EXECUTOR.executeScript(createFileSystem);
-        
-        //int exitValue = PROCESS_EXECUTOR.executeProcess("/sbin/mkfs."
-          //      + fileSystem, "-F", "-L", Partition.PERSISTENCE_LABEL, device);
-                
-        dlCopyGUI.showErrorMessage(createFileSystem);
-        
-        dlCopyGUI.showErrorMessage(String.valueOf(exitValue));
+        String createFileSystem = "#!/bin/sh" + '\n'
+                + "/sbin/mkfs." + fileSystem + " -F -L "
+                + Partition.PERSISTENCE_LABEL + " /dev/mapper/" + mapperName;
+        int exitValue = PROCESS_EXECUTOR.executeScript(createFileSystem);
 
         if (exitValue != 0) {
             LOGGER.severe(PROCESS_EXECUTOR.getOutput());
@@ -630,13 +628,10 @@ public class DLCopy {
         }
 
         // tuning
-        String tuning = "#!/bin/sh"+ '\n'
-                +"/sbin/tune2fs -m 0 -c 0 -i 0 /dev/mapper/"+mapperName;
+        String tuning = "#!/bin/sh" + '\n'
+                + "/sbin/tune2fs -m 0 -c 0 -i 0 /dev/mapper/" + mapperName;
         exitValue = PROCESS_EXECUTOR.executeScript(tuning);
-                dlCopyGUI.showErrorMessage(String.valueOf(exitValue));
 
-        //exitValue = PROCESS_EXECUTOR.executeProcess(
-          //      "/sbin/tune2fs", "-m", "0", "-c", "0", "-i", "0", device);
         if (exitValue != 0) {
             LOGGER.severe(PROCESS_EXECUTOR.getOutput());
             String errorMessage = STRINGS.getString(
@@ -651,51 +646,35 @@ public class DLCopy {
         // org.freedesktop.dbus.exceptions.DBusExecutionException:
         // No such interface 'org.freedesktop.UDisks2.Filesystem'
         // 5 seconds were too short!
-        
-                dlCopyGUI.showErrorMessage("i will start counting now");
-
         try {
-            TimeUnit.SECONDS.sleep(100);
+            TimeUnit.SECONDS.sleep(10);
         } catch (InterruptedException ex) {
-                     dlCopyGUI.showErrorMessage("catch of 40");
-
             LOGGER.log(Level.SEVERE, "", ex);
         }
-        
-                dlCopyGUI.showErrorMessage("i finished the 20");
 
+        /**
+         * This directory will be created so we can mount the mapper to.
+         */
+        String mountPath = "/media/root/persistence";
 
-        // create default persistence configuration file
-        Partition persistencePartition
-                = Partition.getPartitionFromDeviceAndNumber(
-                    device.substring(5));
-         dlCopyGUI.showErrorMessage("i created the partition object");
+        /**
+         * this script creates the new directory "mount path".
+         */
+        String newDirectoryInMediaScript = "#!/bin/sh" + '\n'
+                + "mkdir " + mountPath;
+        PROCESS_EXECUTOR.executeScript(newDirectoryInMediaScript);
 
-        dlCopyGUI.showErrorMessage(persistencePartition.mount().getMountPath());
+        /**
+         * this script mounts the mapper in the mount path defined above.
+         */
+        String mountScript = "#!/bin/sh" + '\n'
+                + "mount " + "/dev/mapper/" + mapperName + " " + mountPath;
+        PROCESS_EXECUTOR.executeScript(mountScript);
 
-        //mountpoint
-        String mountPath = persistencePartition.mount().getMountPath();
         if (mountPath == null) {
-            dlCopyGUI.showErrorMessage("mountpath is null");
             throw new IOException("could not mount persistence partition");
-            
         }
-        
-         dlCopyGUI.showErrorMessage("i got the mountpath");
-        
-        //mount mapper to mounting point
-        String mountMapperToPartition = "#!/bin/sh"+ '\n'
-                +"mount /dev/mapper/"+mapperName+" "+mountPath;
-                PROCESS_EXECUTOR.executeScript(mountMapperToPartition);
-                
-                                dlCopyGUI.showErrorMessage("mounting is ok");
-
-
-        
         writePersistenceConf(mountPath);
-        
-                        dlCopyGUI.showErrorMessage("writing persistence is done");
-
 
         if (DebianLiveVersion.getRunningVersion().ordinal()
                 >= DebianLiveVersion.DEBIAN_8_to_9.ordinal()) {
@@ -703,47 +682,63 @@ public class DLCopy {
             // so that read-only mode works out-of-the-box
             Files.createDirectory(Paths.get(mountPath, "rw"));
             Files.createDirectory(Paths.get(mountPath, "work"));
-            dlCopyGUI.showErrorMessage("i am done creating directories");
         }
-        
 
-        persistencePartition.umount();
-        
-         String closeLuks = "#!/bin/sh"+ '\n'
-                +"cryptsetup luksClose /dev/mapper/"+mapperName;
-                PROCESS_EXECUTOR.executeScript(closeLuks);
-                
-                dlCopyGUI.showErrorMessage("i am at the end");
-       
-        
+        /**
+         * close the luks partition and unmount the partition and the new
+         * directory.
+         */
+        String closeLuks = "#!/bin/sh" + '\n'
+                + "cryptsetup luksClose /dev/mapper/" + mapperName;
+        PROCESS_EXECUTOR.executeScript(closeLuks);
+
+        String unmountDirectoryScript = "#!/bin/sh" + '\n'
+                + "umount " + mountPath;
+        PROCESS_EXECUTOR.executeScript(unmountDirectoryScript);
+
+        String unmountPartitionScript = "#!/bin/sh" + '\n'
+                + "umount /dev/" + device.substring(5);
+        PROCESS_EXECUTOR.executeScript(unmountPartitionScript);
+
     }
-    
-    //creating the mapper
-    public static String createMapper(String partition, String mapperName, String passphrase){
-     String script = "#!/bin/sh"+ '\n'
-                +"printf \""+ passphrase 
-                +"\" | cryptsetup luksOpen /dev/"+partition+" "+mapperName;
-        
-     return script;
-        }
-    
-    
-    //Create the luksFormat shell script
-    private static String createLuksFormatScript(String passphrase, String partition){
-     String script = "#!/bin/sh"+ '\n'
-                +"printf \""+ passphrase +
-                "\" | cryptsetup -q luksFormat --key-slot 0 /dev/"+partition;
-     return script;
+
+    /**
+     * creating the mapper.
+     */
+    public static String createMapper(String partition, String mapperName,
+            String passphrase) {
+        String script = "#!/bin/sh" + '\n'
+                + "printf \"" + passphrase
+                + "\" | cryptsetup luksOpen /dev/" + partition + " " + mapperName;
+
+        return script;
     }
-    
-    
-     //Create the luksAddKey shell script
-     private static String createLuksAddKeyScript(String actualKey, String newKey, String partition, int slotNumber){
-     String script = "#!/bin/sh"+ '\n'
-                +"printf '%s\n' \""+actualKey+"\" \""+newKey+"\" \""+newKey+"\""
-                + " | cryptsetup luksAddKey -q --key-slot "+slotNumber+" /dev/"+partition;
-     return script;
+
+    /**
+     * Create the luksFormat shell script.
+     */
+    private static String createLuksFormatScript(String passphrase,
+            String partition) {
+        String script = "#!/bin/sh" + '\n'
+                + "printf \"" + passphrase
+                + "\" | cryptsetup -q luksFormat --key-slot 0 /dev/" + partition;
+        return script;
     }
+
+    /**
+     * Create the luks add key shell script. it will be used to add the master
+     * passphrase in case the master chooses this method.
+     */
+    private static String createLuksAddKeyScript(String actualKey, String newKey,
+            String partition, int slotNumber) {
+        String script = "#!/bin/sh" + '\n'
+                + "printf '%s\n' \"" + actualKey + "\" \"" + newKey + "\" \""
+                + newKey + "\""
+                + " | cryptsetup luksAddKey -q --key-slot " + slotNumber + " /dev/"
+                + partition;
+        return script;
+    }
+
     /**
      * creates a CopyJobsInfo for a given source / destination combination
      *
@@ -1466,7 +1461,7 @@ public class DLCopy {
                         //  4) system (Linux)
                         PROCESS_EXECUTOR.executeProcess("/sbin/sfdisk",
                                 "--id", device, "3", "83");
-                        System.out.println("Blzbber"+PROCESS_EXECUTOR.getOutput());
+                        System.out.println("Blzbber" + PROCESS_EXECUTOR.getOutput());
                         PROCESS_EXECUTOR.executeProcess("/sbin/sfdisk",
                                 "--id", device, "4", "83");
                     }
@@ -1969,6 +1964,5 @@ public class DLCopy {
     public void setInitialPassword(String initialPassword) {
         this.initialPassword = initialPassword;
     }
-    
-    
+
 }

@@ -3727,12 +3727,16 @@ public class DLCopySwingGUI extends JFrame
                 break;
 
             case INSTALL_SELECTION:
+                if(getdataPartitionTabCredentials()== true){
                 try {
                     checkAndInstallSelection(true);
                 } catch (IOException | DBusException ex) {
                     LOGGER.log(Level.SEVERE,
                             "checking the selected usb flash drive failed", ex);
                 }
+                }
+                else
+                    showErrorMessage("The passwords do not match!");
                 break;
 
             case ISO_SELECTION:
@@ -5648,7 +5652,7 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
                     return true;
 
                 } else {
-                    showErrorMessage("Password does not match");
+                    LOGGER.info("Personal passphrases don't match");
                 }
             }
         } else if (masterInitialPFRadio.isSelected() == true) {
@@ -5669,7 +5673,9 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
                     return true;
 
                 } else {
-                    showErrorMessage("The passwords do not match!");
+                    
+                    LOGGER.info("Th Master or The Initial passphrases doesn't match with its repeatition");
+                    
                 }
 
             }
