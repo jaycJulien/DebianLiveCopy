@@ -78,7 +78,7 @@ public class DLCopy {
     private static String personalPassword;
     private static String masterPassword;
     private static String initialPassword;
-    public static String globallyKnownPassword = "DebianLiveCopy";
+    public static String globallyKnownPassword = "default";
 
     static {
         try {
