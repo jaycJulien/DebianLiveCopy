@@ -5633,6 +5633,15 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
         this.initialPaswordRepeat = initialPaswordRepeat;
     }
 
+    /**
+     * The getdataPartitionTabCredential is called as soon as the user inputs
+     * were made insid the storageMediaManager in the data partition tab and 
+     * when the end-user pressed save. Furthermore, the method gets the user 
+     * inputs and checks if the input is valid, equals or if they contain
+     * illegal symbols, specially "\\"
+     * @return boolean
+     * 
+     */
     private boolean getdataPartitionTabCredentials() {
 
         if (noPWRadio.isSelected() == true) {
@@ -5641,41 +5650,55 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
 
         } else if (personalPFRadio.isSelected() == true) {
             if (personalPWTF.getPassword() == null
-                    || repeatPersonalPFTF.getPassword() == null) {
+                    || repeatPersonalPFTF.getPassword() == null
+                    || new String(personalPWTF.getPassword()).contains("\\")
+                    || new String(repeatPersonalPFTF.getPassword()).contains("\\")) {
+                // show an error Alert
+                LOGGER.info("The personal passphrases are either not matching"
+                        + " or contain illegal symbols");
+                
             } else {
-                // setPersonalPassword(Arrays.toString(personalPWTF.getPassword()));
                 setPersonalPassword(new String(personalPWTF.getPassword()));
 
                 setPersonalPasswordRepeat(new String(repeatPersonalPFTF.getPassword()));
                 if (personalPassword.equals(personalPasswordRepeat)) {
                     setSelectedMethod(UNLOCK_LOCK_METHOD.PERSONAL_PASSWORD.toString());
                     return true;
-
                 } else {
-                    LOGGER.info("Personal passphrases don't match");
+                    LOGGER.info("The personal passphrases don not match");
                 }
             }
         } else if (masterInitialPFRadio.isSelected() == true) {
             if (masterPWTF.getPassword() == null
                     || repeatMasterPWTF.getPassword() == null
                     || intialPWTF.getPassword() == null
-                    || repeatInitialPWTF.getPassword() == null) {
+                    || repeatInitialPWTF.getPassword() == null
+                    || new String(repeatMasterPWTF.getPassword()).contains("\\")
+                    || new String(intialPWTF.getPassword()).contains("\\")
+                    || new String(repeatInitialPWTF.getPassword())
+                            .contains("\\")) {
+                    LOGGER.info("The Master or Initial passphrases are"
+                            + "either empty or contain illegal symbols");
+                    
             } else {
-
-                setMasterPasswordRepeat(new String(repeatMasterPWTF.getPassword()));
+                setMasterPasswordRepeat(
+                        new String(repeatMasterPWTF.getPassword()));
                 setMasterPassword(new String(masterPWTF.getPassword()));
 
                 setInitialPassword(new String(intialPWTF.getPassword()));
-                setInitialPaswordRepeat(new String(repeatInitialPWTF.getPassword()));
+                setInitialPaswordRepeat(
+                        new String(repeatInitialPWTF.getPassword()));
 
-                if ((masterPassword.equals(masterPasswordRepeat)) && (initialPassword.equals(initialPaswordRepeat))) {
-                    setSelectedMethod(UNLOCK_LOCK_METHOD.MASTER_INITIAL_PASSWORD.toString());
+                if ((masterPassword.equals(masterPasswordRepeat)) && 
+                        (initialPassword.equals(initialPaswordRepeat))) {
+                    setSelectedMethod(
+                            UNLOCK_LOCK_METHOD.
+                                    MASTER_INITIAL_PASSWORD.toString());
                     return true;
 
                 } else {
-                    
-                    LOGGER.info("Th Master or The Initial passphrases doesn't match with its repeatition");
-                    
+                    LOGGER.info("Th master or The initial passphrases do not"
+                            + "match with its repeatition");
                 }
 
             }
@@ -5684,16 +5707,7 @@ private void upgradeShowHarddisksCheckBoxItemStateChanged(java.awt.event.ItemEve
         return false;
     }
 
-    //check which chechbox has been selected
-    //if checkbox no password has been selected, go on with the program
-    //==> globally known password used for decryption
-    //if checkbox master password selected
-    //
-    // ==> check if the amaster password has been entered
-    // ==> check if the repetition of master password has been entered
-    // ==> check if both password match with each other
-    // check the master initial and repeat of masster initial pass phrase
-    // if they dont match == alert, no contination of the program
+    
     private void storageDeviceListChanged(DefaultListModel<StorageDevice> model,
             JPanel panel, String noMediaPanelName, String selectionPanelName,
             StorageDeviceRenderer renderer, JList list) {
